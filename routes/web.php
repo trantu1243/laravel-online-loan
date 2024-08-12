@@ -1,0 +1,106 @@
+<?php
+
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Censor\CensorController;
+use App\Http\Controllers\Admin\Censor\CensorDetailController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EditCustomerInfoController;
+use App\Http\Controllers\Admin\Sale\SaleController;
+use App\Http\Controllers\Admin\Sale\SaleDetailController;
+use App\Http\Controllers\Admin\Setting\CodeController;
+use App\Http\Controllers\Admin\Setting\CustomerController;
+use App\Http\Controllers\Admin\Setting\EditLoanController;
+use App\Http\Controllers\Admin\Setting\GeneralSettingController;
+use App\Http\Controllers\Admin\Setting\LoanSettingController;
+use App\Http\Controllers\Admin\User\AddUserController;
+use App\Http\Controllers\Admin\User\ChangePasswordController;
+use App\Http\Controllers\Admin\User\UserController;
+use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Home\LinkController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\ApiMiddleware;
+use App\Http\Middleware\AppraiserMiddleware;
+use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\SaleMiddleware;
+use App\Http\Middleware\VerifyMiddleware;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', [HomeController::class, 'show'])->name('index');
+
+Route::get('/customer/update/{token}', [LinkController::class, 'show'])->name('update-info-v2');
+Route::post('/customer/update/{token}', [LinkController::class, 'update'])->name('update-info');
+
+Route::middleware([AuthMiddleware::class])->group(function (){
+    Route::get('/admin/login', [LoginController::class, 'show'])->name('auth.login');
+    Route::post('/admin/login', [LoginController::class, 'login'])->name('auth.post.login');
+});
+
+Route::middleware([VerifyMiddleware::class])->group(function (){
+    Route::get('/admin', [DashboardController::class, 'show'])->name('dashboard');
+    Route::get('/admin/edit/{id}', [EditCustomerInfoController::class, 'show'])->name('edit-customer-info');
+    Route::post('/admin/edit/{id}', [EditCustomerInfoController::class, 'edit'])->name('post.edit-customer-info');
+    Route::delete('/admin/delete/{id}', [DashboardController::class, 'destroy'])->name('delete-customer-info');
+
+    // Admin
+    Route::middleware([AdminMiddleware::class])->group(function (){
+        Route::get('/admin/user', [UserController::class, 'show'])->name('show-user');
+
+        Route::get('/admin/add-user', [AddUserController::class, 'show'])->name('add-user');
+        Route::post('/admin/add-user', [AddUserController::class, 'create'])->name('post.add-user');
+
+        Route::get('/admin/user/change-password/{id}', [ChangePasswordController::class, 'show'])->name('change-password');
+        Route::post('/admin/user/change-password/{id}', [ChangePasswordController::class, 'change'])->name('post.change-password');
+
+        Route::delete('/admin/delete-user/{id}', [UserController::class, 'destroy'])->name('delete-user');
+
+        Route::get('/admin/setting', [GeneralSettingController::class, 'show'])->name('settings');
+        Route::post('/admin/setting/upload-image', [GeneralSettingController::class, 'upload'])->name('upload-image');
+        Route::post('/admin/setting/general', [GeneralSettingController::class, 'save'])->name('save-setting');
+
+        Route::get('admin/setting/loan', [LoanSettingController::class, 'show'])->name('loan-setting');
+        Route::post('/admin/setting/add-loan', [LoanSettingController::class, 'add'])->name('add-loan');
+        Route::delete('/admin/delete-loan/{id}', [LoanSettingController::class, 'destroy'])->name('delete-loan');
+        Route::get('/admin/setting/edit-loan/{id}', [EditLoanController::class, 'show'])->name('edit-loan');
+        Route::post('/admin/setting/edit-loan/{id}', [EditLoanController::class, 'edit'])->name('post.edit-loan');
+        Route::post('/api/loan/update-status/{id}', [LoanSettingController::class, 'active']);
+
+        Route::get('admin/setting/customer', [CustomerController::class, 'show'])->name('customer-setting');
+        Route::get('/admin/setting/edit-customer/{id}', [CustomerController::class, 'showEdit'])->name('edit-customer');
+        Route::post('/admin/setting/edit-customer/{id}', [CustomerController::class, 'edit'])->name('post.edit-customer');
+
+        Route::get('admin/setting/code', [CodeController::class, 'show'])->name('show-code');
+        Route::get('admin/setting/others', [CodeController::class, 'showOthers'])->name('show-others');
+        Route::post('admin/setting/code', [CodeController::class, 'change'])->name('save-code');
+        Route::post('admin/setting/others', [CodeController::class, 'changeOthers'])->name('save-others');
+    });
+
+    // Sale
+    Route::middleware([SaleMiddleware::class])->group(function (){
+        Route::get('/admin/sale', [SaleController::class, 'show'])->name('show-sale');
+        Route::post('/admin/sale/{id}', [SaleController::class, 'call'])->name('call-sale');
+
+        Route::get('/admin/sale/detail/{id}', [SaleDetailController::class, 'show'])->name('detail-sale');
+        Route::post('/admin/gen-link', [SaleDetailController::class, 'genLink'])->name('gen-link');
+        Route::post('/admin/sale/disable/{id}', [SaleDetailController::class, 'cancel'])->name('cancel-customer');
+    });
+
+    // Censor
+    Route::middleware([AppraiserMiddleware::class])->group(function (){
+        Route::get('/admin/censor', [CensorController::class, 'show'])->name('show-censor');
+
+        Route::get('/admin/censor/detail/{id}', [CensorDetailController::class, 'show'])->name('detail-censor');
+        Route::post('/admin/censor/browse/{id}', [CensorDetailController::class, 'browse'])->name('browse');
+        Route::post('/admin/censor/disable/{id}', [CensorDetailController::class, 'cancel'])->name('censor-cancel');
+    });
+
+    Route::get('/admin/logout', [LoginController::class, 'logout']);
+});
+
+// api
+Route::middleware([ApiMiddleware::class])->group(function (){
+    Route::post('/api/lead/validate', [ApiController::class, 'validate']);
+    Route::post('/api/otp/gen-otp', [ApiController::class, 'genOpt']);
+    Route::post('/api/otp/verify-otp', [ApiController::class, 'verify']);
+    Route::post('/api/lead/send', [ApiController::class, 'send']);
+});

@@ -1,0 +1,194 @@
+@extends('admin.layouts.index')
+
+@section('title', 'Chung')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Upload ảnh</h3>
+                    </div>
+                    <form action="{{ Route('upload-image') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card-body">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" name="image">
+                                    <label class="custom-file-label" for="customFile">Choose image</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type</label>
+                                <select name="type" id="type" class="form-control">
+                                    <option value="logo">logo (95∶32)</option>
+                                    <option value="background">background (96∶35)</option>
+                                    <option value="mb_background">moblie background</option>
+                                    <option value="pc_banner">pc banner (4:1)</option>
+                                    <option value="mobile_banner">mobile banner (3∶4)</option>
+                                    <option value="popup">popup (1:1)</option>
+                                    <option value="about">about</option>
+                                    <option value="logo_footer">logo_footer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">Chung</h3>
+                    </div>
+                    <form action="{{ Route('save-setting') }}" method="POST">
+                        @csrf
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input name="title" type="text" value="{{ $setting->title }}" class="form-control" id="title" placeholder="Enter title" autocomplete="none">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="logo">Logo (95∶32)</label>
+                                <select name="logo" id="logo" class="form-control" onchange="updateImage(this, 'logoImage')">
+                                    @foreach ($logo as $item)
+                                        <option value="{{$item->file}}" {{ $item->file === $setting->logo ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="logoImage" src="{{$setting->logo}}" height="60px" style = "margin-top: 10px">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="background">Background (96∶35)</label>
+                                <select name="background" id="background" class="form-control" onchange="updateImage(this, 'backgroundImage')">
+                                    @foreach ($background as $item)
+                                        <option value="{{$item->file}}"  {{ $item->file === $setting->background ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="backgroundImage" src="{{$setting->background}}" height="80px" style = "margin-top: 10px">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mb_background">Mobile background (3∶4)</label>
+                                <select name="mb_background" id="mb_background" class="form-control" onchange="updateImage(this, 'mb_backgroundImage')">
+                                    @foreach ($mb_background as $item)
+                                        <option value="{{$item->file}}"  {{ $item->file === $setting->mb_background ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="mb_backgroundImage" src="{{$setting->mb_background}}" height="80px" style = "margin-top: 10px">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="pc_banner">PC banner (4:1)</label>
+                                <select name="pc_banner" id="pc_banner" class="form-control" onchange="updateImage(this, 'pc_bannerImage')">
+                                    @foreach ($pc_banner as $item)
+                                        <option value="{{$item->file}}"  {{ $item->file === $setting->pc_banner ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="pc_bannerImage" src="{{$setting->pc_banner}}" height="80px" style = "margin-top: 10px">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mobile_banner">Mobile banner(3:4)</label>
+                                <select name="mobile_banner" id="mobile_banner" class="form-control" onchange="updateImage(this, 'mobile_bannerImage')">
+                                    @foreach ($mobile_banner as $item)
+                                        <option value="{{$item->file}}" {{ $item->file === $setting->mobile_banner ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="mobile_bannerImage" src="{{$setting->mobile_banner}}" height="80px" style = "margin-top: 10px">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="rate">Lãi hiển thị (%/năm)</label>
+                                <input name="rate" type="number" value="{{ $setting->rate }}" class="form-control" id="rate" placeholder="Enter rate" autocomplete="none">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="about1">About</label>
+                                <textarea name="about1" class="form-control" id="about1" placeholder="Enter about">{{ $setting->about1 }}</textarea>
+                                <textarea name="about2" class="form-control" id="about2" placeholder="Enter about" style="margin-top:10px">{{ $setting->about2 }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="about_image">About image</label>
+                                <select name="about_image" id="about_image" class="form-control" onchange="updateImage(this, 'about_imageImage')">
+                                    @foreach ($about as $item)
+                                        <option value="{{$item->file}}" {{ $item->file === $setting->about_image ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="about_imageImage" src="{{$setting->about_image}}" height="80px" style = "margin-top: 10px">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="logo_footer">Logo footer</label>
+                                <select name="logo_footer" id="logo_footer" class="form-control" onchange="updateImage(this, 'logo_footerImage')">
+                                    @foreach ($logo_footer as $item)
+                                        <option value="{{$item->file}}" {{ $item->file === $setting->logo_footer ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="logo_footerImage" src="{{$setting->logo_footer}}" height="60px" style = "margin-top: 10px">
+                            </div>
+
+                            <label for="">Popup</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="popup" {{$setting->popup ? "checked":''}}>
+                                <label class="form-check-label" for="exampleCheck1">Hiển thị Popup</label>
+                            </div>
+
+                            <div id="elementsToShow" class="{{$setting->popup ? '':'hidden'}}">
+                                <div class="form-group">
+                                    <label for="popup_image">Popup image (1:1)</label>
+                                    <select name="popup_image" id="popup_image" class="form-control" onchange="updateImage(this, 'popup_imageImage')">
+                                        @foreach ($popup as $item)
+                                            <option value="{{$item->file}}"  {{ $item->file === $setting->popup_image ? "selected":"" }}>{{$item->filename}}</option>
+                                        @endforeach
+                                    </select>
+                                    <img id="popup_imageImage" src="{{$setting->popup_image}}" height="80px" style = "margin-top: 10px">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="detail_link">Link chi tiết</label>
+                                    <input name="detail_link" type="text" class="form-control" id="detail_link" value="{{ $setting->detail_link }}" placeholder="Enter link" autocomplete="none">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                    <!-- /.card-body -->
+                  </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div><!--/. container-fluid -->
+
+    <script>
+        document.getElementById('exampleCheck1').addEventListener('change', function() {
+            var elements = document.getElementById('elementsToShow');
+            if (this.checked) {
+                elements.classList.remove('hidden');
+            } else {
+                elements.classList.add('hidden');
+            }
+        });
+    </script>
+    <script>
+        function updateImage(selectElement, imgId) {
+            var img = document.getElementById(imgId);
+            img.src = selectElement.value;
+        }
+    </script>
+
+@endsection
