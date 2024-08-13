@@ -29,7 +29,7 @@
                                     <option value="mobile_banner">mobile banner (3∶4)</option>
                                     <option value="popup">popup (1:1)</option>
                                     <option value="about">about</option>
-                                    <option value="mb_about_image">about</option>
+                                    <option value="mb_about_image">mobile about</option>
                                     <option value="logo_footer">logo footer</option>
                                     <option value="mb_logo_footer">mobile logo footer</option>
                                 </select>
