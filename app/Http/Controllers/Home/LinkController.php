@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Code;
 use App\Models\CustomerInfo;
 use App\Models\CustomerInfoV2;
+use App\Models\Setting;
 use Exception;
 use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
@@ -20,11 +22,15 @@ class LinkController extends Controller
         try {
             $key = env('JWT_SECRET');
             $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            if ($decoded->v != 2) return response()->json(['error' => 'Invalid token.'], 401);
+
             $customerId = $decoded->customer_id;
 
             $user = CustomerInfo::findOrFail($customerId);
+            $setting = Setting::find(1);
+            $code = Code::find(1);
 
-            return view('update-info-v2', ['token' => $token]);
+            return view('link-v2', ['token' => $token, 'setting' => $setting, 'code' => $code]);
 
         } catch (ExpiredException $e) {
             return response()->json(['error' => 'Link has expired.'], 401);
@@ -42,10 +48,77 @@ class LinkController extends Controller
         return $imagePath;
     }
 
+    public function confirm($token, Request $request){
+        try {
+            $key = env('JWT_SECRET');
+
+            $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            if ($decoded->v != 2) {
+                toastr()->error(' Error');
+                return back();
+            }
+            $customerId = $decoded->customer_id;
+
+            $customer = CustomerInfo::findOrFail($customerId);
+
+            $request->validate([
+                'confirm_e_contact' => 'required|string',
+                'i_agree_terms_and_conditions'  => 'required|string',
+            ]);
+
+            $payload = [
+                'customer_id' => $customerId,
+                'v' => 3,
+                'exp' => time() + (24 * 60 * 60),
+            ];
+
+            $jwt = JWT::encode($payload, $key, 'HS256');
+
+            $link = route('update-v2', ['token' => $jwt]);
+
+            return redirect($link);
+        }
+        catch (ExpiredException $e) {
+            return response()->json(['error' => 'Link has expired.'], 401);
+        } catch (Exception $e) {
+            Log::error($e);
+            toastr()->error(' Error');
+            return back();
+        }
+
+
+    }
+
+    public function showV3($token){
+
+        try {
+            $key = env('JWT_SECRET');
+            $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            if ($decoded->v != 3) return response()->json(['error' => 'Invalid token.'], 401);
+
+            $customerId = $decoded->customer_id;
+
+            $user = CustomerInfo::findOrFail($customerId);
+            $setting = Setting::find(1);
+            $code = Code::find(1);
+
+            return view('link-v3', ['token' => $token, 'setting' => $setting, 'code' => $code]);
+
+        } catch (ExpiredException $e) {
+            return response()->json(['error' => 'Link has expired.'], 401);
+        } catch (Exception $e) {
+            return response()->json(['error' => 'Invalid token.'], 401);
+        }
+    }
+
     public function update($token, Request $request){
         try{
             $key = env('JWT_SECRET');
             $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            if ($decoded->v != 3) {
+                toastr()->error(' Error');
+                return back();
+            }
             $customerId = $decoded->customer_id;
 
             $customer = CustomerInfo::findOrFail($customerId);
@@ -63,8 +136,6 @@ class LinkController extends Controller
                     'required',
                     'regex:/^data:image\/(png|jpg|jpeg|gif);base64,/',
                 ],
-                'confirm' => 'required|string',
-                'accept' => 'required|string'
             ]);
 
             // frontCCCD

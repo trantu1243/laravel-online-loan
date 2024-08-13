@@ -29,7 +29,9 @@
                                     <option value="mobile_banner">mobile banner (3∶4)</option>
                                     <option value="popup">popup (1:1)</option>
                                     <option value="about">about</option>
-                                    <option value="logo_footer">logo_footer</option>
+                                    <option value="mb_about_image">about</option>
+                                    <option value="logo_footer">logo footer</option>
+                                    <option value="mb_logo_footer">mobile logo footer</option>
                                 </select>
                             </div>
                         </div>
@@ -108,6 +110,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="dieu_khoan_xu_ly_du_lieu_ca_nhan">Điều khoản xử lý dữ liệu cá nhân</label>
+                                <input name="dieu_khoan_xu_ly_du_lieu_ca_nhan" type="text" value="{{ $setting->dieu_khoan_xu_ly_du_lieu_ca_nhan }}" class="form-control" id="dieu_khoan_xu_ly_du_lieu_ca_nhan" placeholder="Enter ..." autocomplete="none">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dieu_khoan_giao_dich">Điều khoản giao dịch</label>
+                                <input name="dieu_khoan_giao_dich" type="text" value="{{ $setting->dieu_khoan_giao_dich }}" class="form-control" id="dieu_khoan_giao_dich" placeholder="Enter ..." autocomplete="none">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="rate">Lãi hiển thị (%/năm)</label>
                                 <input name="rate" type="number" value="{{ $setting->rate }}" class="form-control" id="rate" placeholder="Enter rate" autocomplete="none">
                             </div>
@@ -128,6 +140,17 @@
                                 <img id="about_imageImage" src="{{$setting->about_image}}" height="80px" style = "margin-top: 10px">
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="mb_about_image">Mobile bout image</label>
+                                <select name="mb_about_image" id="mb_about_image" class="form-control" onchange="updateImage(this, 'mb_about_imageImage')">
+                                    @foreach ($mb_about_image as $item)
+                                        <option value="{{$item->file}}" {{ $item->file === $setting->mb_about_image ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="mb_about_imageImage" src="{{$setting->mb_about_image}}" height="80px" style = "margin-top: 10px">
+                            </div>
+
                             <div class="form-group">
                                 <label for="logo_footer">Logo footer</label>
                                 <select name="logo_footer" id="logo_footer" class="form-control" onchange="updateImage(this, 'logo_footerImage')">
@@ -136,6 +159,17 @@
                                     @endforeach
                                 </select>
                                 <img id="logo_footerImage" src="{{$setting->logo_footer}}" height="60px" style = "margin-top: 10px">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="mb_logo_footer">Mobile Logo footer</label>
+                                <select name="mb_logo_footer" id="mb_logo_footer" class="form-control" onchange="updateImage(this, 'mb_logo_footerImage')">
+                                    @foreach ($mb_logo_footer as $item)
+                                        <option value="{{$item->file}}" {{ $item->file === $setting->mb_logo_footer ? "selected":"" }}>{{$item->filename}}</option>
+                                    @endforeach
+                                </select>
+                                <img id="mb_logo_footerImage" src="{{$setting->mb_logo_footer}}" height="60px" style = "margin-top: 10px">
                             </div>
 
                             <label for="">Popup</label>

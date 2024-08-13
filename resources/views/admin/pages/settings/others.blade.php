@@ -114,7 +114,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body p-0">
-                    <textarea id="about_footer" class="p-3" name="about_code">{{ $code->about_footer }}</textarea>
+                    <textarea id="about_footer" class="p-3" name="about_footer">{{ $code->about_footer }}</textarea>
                     </div>
 
                 </div>

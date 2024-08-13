@@ -28,8 +28,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'show'])->name('index');
 
-Route::get('/customer/update/{token}', [LinkController::class, 'show'])->name('update-info-v2');
-Route::post('/customer/update/{token}', [LinkController::class, 'update'])->name('update-info');
+Route::get('/customer/confirm-contract/{token}', [LinkController::class, 'show'])->name('confirm-v2');
+Route::post('/customer/confirm-contract/{token}', [LinkController::class, 'confirm'])->name('post-confirm-v2');
+
+Route::get('/customer/update-info/{token}', [LinkController::class, 'showV3'])->name('update-v2');
+Route::post('/customer/update-info/{token}', [LinkController::class, 'update'])->name('post-update-v2');
 
 Route::middleware([AuthMiddleware::class])->group(function (){
     Route::get('/admin/login', [LoginController::class, 'show'])->name('auth.login');

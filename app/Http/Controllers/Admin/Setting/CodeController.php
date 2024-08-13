@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Setting;
 use App\Http\Controllers\Controller;
 use App\Models\Code;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class CodeController extends Controller
 {
@@ -33,20 +34,28 @@ class CodeController extends Controller
     }
 
     public function changeOthers(Request $request){
-        $request->validate([
-            'advantage' => 'required|string',
-            'procedure' => 'required|string',
-            'question' => 'required|string',
-            'about_footer' => 'required|string',
-        ]);
-        $code = Code::find(1);
-        $code->advantage = $request->input('advantage');
-        $code->procedure = $request->input('procedure');
-        $code->question = $request->input('question');
-        $code->about_footer = $request->input('about_footer');
-        $code->save();
+        try{
+            $request->validate([
+                'advantage' => 'required|string',
+                'procedure' => 'required|string',
+                'question' => 'required|string',
+                'about_footer' => 'required|string',
+            ]);
+            $code = Code::find(1);
+            $code->advantage = $request->input('advantage');
+            $code->procedure = $request->input('procedure');
+            $code->question = $request->input('question');
+            $code->about_footer = $request->input('about_footer');
+            $code->save();
 
-        toastr()->success(' Lưu thành công');
-        return back();
+            toastr()->success(' Lưu thành công');
+            return back();
+        }
+        catch(\Exception $e){
+            Log::error($e);
+            toastr()->error('Error');
+            return back();
+        }
+
     }
 }

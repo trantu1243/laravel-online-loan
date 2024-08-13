@@ -26,12 +26,13 @@ class SaleDetailController extends Controller
             $key = env('JWT_SECRET');
             $payload = [
                 'customer_id' => $customer->id,
+                'v' => 2,
                 'exp' => time() + (24 * 60 * 60),
             ];
 
             $jwt = JWT::encode($payload, $key, 'HS256');
 
-            $link = route('update-info-v2', ['token' => $jwt]);
+            $link = route('confirm-v2', ['token' => $jwt]);
 
             $customer->status = 'FILL';
 

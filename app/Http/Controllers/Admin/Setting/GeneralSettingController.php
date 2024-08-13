@@ -20,6 +20,8 @@ class GeneralSettingController extends Controller
         $popup = Image::query()->where('type', 'popup')->select('file', 'filename', 'type')->get();
         $about = Image::query()->where('type', 'about')->select('file', 'filename', 'type')->get();
         $logo_footer = Image::query()->where('type', 'logo_footer')->select('file', 'filename', 'type')->get();
+        $mb_logo_footer = Image::query()->where('type', 'mb_logo_footer')->select('file', 'filename', 'type')->get();
+        $mb_about_image = Image::query()->where('type', 'mb_about_image')->select('file', 'filename', 'type')->get();
 
         return view('admin.pages.settings.index', [
             'setting' => $setting,
@@ -30,7 +32,9 @@ class GeneralSettingController extends Controller
             'mobile_banner' => $mobile_banner,
             'popup' => $popup,
             'about' => $about,
-            'logo_footer' => $logo_footer
+            'logo_footer' => $logo_footer,
+            'mb_logo_footer' => $mb_logo_footer,
+            'mb_about_image' => $mb_about_image
         ]);
     }
 
@@ -89,6 +93,10 @@ class GeneralSettingController extends Controller
                 'about2' => 'required|string',
                 'about_image' => 'required|string',
                 'logo_footer' => 'required|string',
+                'mb_logo_footer' => 'required|string',
+                'dieu_khoan_xu_ly_du_lieu_ca_nhan' => 'required|string',
+                'dieu_khoan_giao_dich' => 'required|string',
+                'mb_about_image' => 'required|string',
             ]);
 
             $setting = Setting::find(1);
@@ -106,6 +114,10 @@ class GeneralSettingController extends Controller
             $setting->about2 = $request->input('about2');
             $setting->about_image = $request->input('about_image');
             $setting->logo_footer = $request->input('logo_footer');
+            $setting->dieu_khoan_xu_ly_du_lieu_ca_nhan = $request->input('dieu_khoan_xu_ly_du_lieu_ca_nhan');
+            $setting->dieu_khoan_giao_dich = $request->input('dieu_khoan_giao_dich');
+            $setting->mb_logo_footer = $request->input('mb_logo_footer');
+            $setting->mb_about_image = $request->input('mb_about_image');
 
             $setting->save();
 
