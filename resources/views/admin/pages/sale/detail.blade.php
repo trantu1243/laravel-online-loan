@@ -35,37 +35,138 @@
                     <div class="card-body">
                       <div class="tab-content" id="custom-tabs-four-tabContent">
                         <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="">Tên</label>
                                             <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->name }}" disabled>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="">SĐT</label>
                                             <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->phone }}" disabled>
                                         </div>
                                     </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">CCCD</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->idCard }}" disabled>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="">CCCD</label>
-                                    <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->idCard }}" disabled>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">Nhóm khách hàng</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->salaryType }}" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">Thời gian gọi</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->timeCall }}" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">Link facebook</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->linkfb }}" disabled>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="">Nhóm khách hàng</label>
-                                    <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->salaryType }}" disabled>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">Số tiền mong muốn vay</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->desiredAmount }} triệu vnd" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">Thời hạn trả mong muốn</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->desiredDuration }} tháng" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="">Mức thu nhập</label>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->income }}  triệu vnd" disabled>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="">Thời gian gọi</label>
-                                    <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->timeCall }}" disabled>
-                                </div>
+                                @if ($customer->status == 'SALE' || $customer->status == 'PENDING')
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title" style="font-weight: 600">Các gói được phép vay</h3>
+
+                                                </div>
+                                                <!-- /.card-header -->
+                                                <div class="card-body table-responsive p-0">
+                                                    <table class="table table-hover text-nowrap">
+                                                        <thead>
+                                                        <tr>
+                                                            <th style="width: 100px">Tiêu đề</th>
+                                                            <th style="width: 150px">Nội dung</th>
+                                                            <th>Gói vay</th>
+                                                            <th>Thời hạn</th>
+                                                            <th>Lãi suất</th>
+                                                            <th>Thu nhập tối thiểu</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($loans as $item)
+                                                                <tr>
+                                                                    @php
+                                                                        $title = $item->title;
+                                                                        if (strlen(strip_tags($title)) > 20) {
+                                                                            $title = substr(strip_tags($title), 0, 20) . '...';
+                                                                        }
+                                                                    @endphp
+                                                                    <td>{{ $title }}</td>
+                                                                    @php
+                                                                        $content = $item->content;
+                                                                        if (strlen(strip_tags($content)) > 30) {
+                                                                            $content = substr(strip_tags($content), 0, 30) . '...';
+                                                                        }
+                                                                    @endphp
+                                                                    <td>{{ $content }}</td>
+                                                                    <td>{{ $item->amount }} triệu</td>
+                                                                    <td>{{ $item->duration }} tháng</td>
+                                                                    <td>{{ $item->rate }}%</td>
+                                                                    <td>{{ $item->minIncome }} triệu</td>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <div class="custom-control custom-radio">
+                                                                            <input class="custom-control-input" type="radio" id="radio{{ $item->id }}" name="loan_selected" value="{{ $item->id }}" onclick="updateHiddenInput(this.value)">
+                                                                            <label for="radio{{ $item->id }}" class="custom-control-label"></label>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @elseif ($customer->status != 'DISABLE')
+                                    <div class="form-group">
+                                        <label for="">Gói vay của khách hàng (id | gói | thời hạn | lãi suất)</label>
+                                        <input type="text" class="form-control " placeholder="Enter ..." value="{{  $customer->loan ? $customer->loan->id . ' | ' . $customer->loan->amount . ' triệu | ' . $customer->loan->duration . ' tháng | ' . $customer->loan->rate . '%' : '-' }}" disabled>
+                                    </div>
+                                @endif
+
 
                                 <div class="form-group">
                                     <label for="">Sale nhận xử lý</label>
@@ -98,6 +199,10 @@
                                             $status = 'Đang điền tt';
                                             $btn = 'info';
                                         }
+                                        elseif ($customer->status === 'TRANSFER') {
+                                            $status = 'Đang chuyển tiền';
+                                            $btn = 'warning';
+                                        }
                                         elseif ($customer->status === 'DONE') {
                                             $status = 'Done';
                                             $btn = 'success';
@@ -107,7 +212,7 @@
                                             $btn = 'danger';
                                         }
                                     @endphp
-                                    <div class="btn btn-{{ $btn }} btn-sm">{{ $status }}</div>
+                                    <span class="badge bg-{{ $btn }}">{{ $status }}</span>
                                 </div>
                                 <div class="form-group">
                                     @if ($customer->status === 'SALE')
@@ -116,15 +221,19 @@
                                             @csrf
                                             <button type="submit" class="btn btn-default" id="">Hủy bỏ</button>
                                         </form>
-                                        <form id="confirmationForm" style="display: inline-block">
+                                        <form action="{{ Route('confirm-sale', ['id' => $customer->id]) }}" method="POST" style="display: inline-block">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary" id="confirmButton">Xác nhận và tạo link</button>
+                                            <input type="hidden" id="selectedLoanId" name="selectedLoanId">
+                                            <button type="submit" class="btn btn-primary" id="confirmButton">Xác nhận</button>
                                         </form>
                                     @elseif ($customer->status === 'FILL' || $customer->status === 'CENSOR')
                                         <form id="confirmationForm" style="display: inline-block">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary" id="confirmButton">Tạo lại link</button>
+                                            <button type="submit" class="btn btn-primary" id="confirmButton">Tạo link</button>
                                         </form>
+                                    @endif
+                                    @if ($customer->contract_id)
+                                        <a href="{{ Route('sale-contract', ['id' => $customer->id]) }}" target="_blank" class="btn btn-warning" id="confirmButton">Xem hợp đồng điện tử</a>
                                     @endif
 
                                 </div>
@@ -144,7 +253,11 @@
         </div>
     </div>
 </section>
-
+<script>
+    function updateHiddenInput(value) {
+        document.getElementById('selectedLoanId').value = value;
+    }
+</script>
 <script>
     document.getElementById('confirmationForm').onsubmit = async function(e) {
         e.preventDefault();

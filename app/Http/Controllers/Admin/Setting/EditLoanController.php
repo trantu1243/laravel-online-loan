@@ -18,20 +18,22 @@ class EditLoanController extends Controller
     public function edit($id, Request $request){
         try{
             $request->validate([
-                'title' => 'required',
-                'content' => 'required',
-                'loan' => 'required',
-                'rate' => 'required',
-                'period' => 'required',
+                'title' => 'required|string',
+                'content' => 'required|string',
+                'amount' => 'required|string',
+                'duration' => 'required|string',
+                'rate' => 'required|string',
+                'minIncome' => 'required|string',
             ]);
 
             $loan = Sale::find($id);
 
             $loan->title = $request->input('title');
             $loan->content = $request->input('content');
-            $loan->loan = $request->input('loan');
-            $loan->rate = floatval($request->input('rate'));
-            $loan->period = $request->input('period');
+            $loan->amount = $request->input('amount');
+            $loan->duration = $request->input('duration');
+            $loan->rate = $request->input('rate');
+            $loan->minIncome = $request->input('minIncome');
 
             if ($request->input('checkbox2') !== null) {
                 $request->validate([

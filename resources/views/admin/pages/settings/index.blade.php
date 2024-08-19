@@ -59,6 +59,16 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="hotline">Hotline</label>
+                                <input name="hotline" type="text" value="{{ $setting->hotline }}" class="form-control" id="hotline" placeholder="Enter hotline" autocomplete="none">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="link_mes">Link messenger</label>
+                                <input name="link_mes" type="text" value="{{ $setting->link_mes }}" class="form-control" id="link_mes" placeholder="Enter title" autocomplete="none">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="logo">Logo (95∶32)</label>
                                 <select name="logo" id="logo" class="form-control" onchange="updateImage(this, 'logoImage')">
                                     @foreach ($logo as $item)

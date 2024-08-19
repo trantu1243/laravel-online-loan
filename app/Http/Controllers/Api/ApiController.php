@@ -146,28 +146,41 @@ class ApiController extends Controller
     }
 
     public function send(Request $request){
-        $request->validate([
-            'request_id' => 'required|string',
-            'device' => 'required|string',
-            'fullname' => 'required|string',
-            'contact_number' => 'required|string',
-            'note' => 'required|string'
-        ]);
+        try{
+            $request->validate([
+                'request_id' => 'required|string',
+                'device' => 'required|string',
+                'fullname' => 'required|string',
+                'contact_number' => 'required|string',
+                'note' => 'required|string'
+            ]);
 
-        $note = json_decode($request->input('note'));
+            $note = json_decode($request->input('note'));
 
-        $customer_info = CustomerInfo::create([
-            'idCard' => $note->cmnd,
-            'name' => $request->input('fullname'),
-            'phone' => $request->input('contact_number'),
-            'salaryType' => $note->income_amount,
-            'timeCall' => $note->income,
-            'status' => 'PENDING',
-        ]);
+            $customer_info = CustomerInfo::create([
+                'idCard' => $note->cmnd,
+                'name' => $request->input('fullname'),
+                'phone' => $request->input('contact_number'),
+                'salaryType' => $note->income_amount,
+                'timeCall' => $note->income,
+                'linkfb' => $note->linkfb,
+                'desiredAmount' => $note->amount,
+                'desiredDuration' => $note->duration,
+                'income' => $note->inc,
+                'status' => 'PENDING',
+            ]);
 
-        return [
-            'rslt_msg' => 'Success',
-            'errorMessage' => 'Failure',
-        ];
+            return [
+                'rslt_msg' => 'Success',
+                'errorMessage' => 'Failure',
+            ];
+        }
+        catch(\Exception $e) {
+            Log::error($e);
+            return [
+                'rslt_msg' => 'Failure',
+                'errorMessage' => '',
+            ];
+        }
     }
 }

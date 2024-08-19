@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Code;
+use App\Models\Contract;
 use App\Models\CustomerInfo;
 use App\Models\CustomerInfoV2;
 use App\Models\Setting;
@@ -12,6 +13,7 @@ use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,6 +33,27 @@ class LinkController extends Controller
             $code = Code::find(1);
 
             return view('link-v2', ['token' => $token, 'setting' => $setting, 'code' => $code]);
+
+        } catch (ExpiredException $e) {
+            return response()->json(['error' => 'Link has expired.'], 401);
+        } catch (Exception $e) {
+            return response()->json(['error' => 'Invalid token.'], 401);
+        }
+    }
+
+    public function contract($token){
+        try {
+            $key = env('JWT_SECRET');
+            $decoded = JWT::decode($token, new Key($key, 'HS256'));
+            if ($decoded->v != 2) return response()->json(['error' => 'Invalid token.'], 401);
+
+            $customerId = $decoded->customer_id;
+
+            $customer = CustomerInfo::findOrFail($customerId);
+            $contract = Contract::find($customer->contract_id);
+            $pdf = App::make('dompdf.wrapper');
+            $pdf->loadHTML($contract->content);
+            return $pdf->stream();
 
         } catch (ExpiredException $e) {
             return response()->json(['error' => 'Link has expired.'], 401);
@@ -85,8 +108,6 @@ class LinkController extends Controller
             toastr()->error(' Error');
             return back();
         }
-
-
     }
 
     public function showV3($token){
@@ -123,7 +144,7 @@ class LinkController extends Controller
 
             $customer = CustomerInfo::findOrFail($customerId);
 
-            if ($customer->status == 'DONE') {
+            if ($customer->status == 'DONE' || $customer->status == 'TRANSFER') {
                 toastr()->success(' Thông tin đã đc ghi nhận tại hệ thống');
                 return redirect(route('index'));
             }
@@ -193,6 +214,7 @@ class LinkController extends Controller
             }
 
             $customer->status = 'CENSOR';
+            $customer->fill_time = now();
             $customer->save();
 
             toastr()->success(' Đã update thông tin thành công');

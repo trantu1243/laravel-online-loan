@@ -342,7 +342,11 @@ function verifyOtp(otpDegit) {
                       gender: null,
                       submitdata: submitdata,
                       oldloan: utmContent,
-                      income: formData.timeCall1 ? formData.timeCall1 : formData.timeCall2
+                      income: formData.timeCall1 ? formData.timeCall1 : formData.timeCall2,
+                      linkfb: formData.linkfb,
+                      amount: formData.amount,
+                      duration: formData.duration,
+                      inc: formData.income
                     };
 
                     let data = {
@@ -446,6 +450,22 @@ function validate(formData) {
   }
 
   if (!formData.timeCall1 && !formData.timeCall2) {
+    rs.valid = false;
+  }
+
+  if(!formData.linkfb) {
+    rs.valid = false;
+  }
+
+  if(!formData.amount || formData.amount == 0) {
+    rs.valid = false;
+  }
+
+  if(!formData.duration || formData.duration == 0) {
+    rs.valid = false;
+  }
+
+  if(!formData.income || formData.income == 0) {
     rs.valid = false;
   }
 

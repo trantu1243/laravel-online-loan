@@ -42,22 +42,35 @@
                                 <input name="content" type="text" class="form-control" id="content" placeholder="Enter content" autocomplete="none">
                             </div>
 
-                            <div class="form-group">
-                                <label for="loan">Gói vay(tối đa)</label>
-                                <input name="loan" type="text" class="form-control" id="loan" placeholder="Enter loan" autocomplete="none">
-                            </div>
-
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="rate">Lãi</label>
-                                        <input name="rate" type="number" step="0.01" class="form-control" id="rate" placeholder="Enter rate" autocomplete="none">
+                                        <label for="amount">Gói vay (triệu)</label>
+                                        <input name="amount" type="number" class="form-control" id="amount" placeholder="Enter amount" autocomplete="none">
                                     </div>
                                 </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="period">Hàng</label>
-                                        <input name="period" type="text" class="form-control" id="period" placeholder="Enter period" autocomplete="none">
+                                        <label for="duration">Thời hạn (tháng)</label>
+                                        <input name="duration" type="number" class="form-control" id="duration" placeholder="Enter duration" autocomplete="none">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="rate">Lãi suất (%)</label>
+                                        <input name="rate" type="number" class="form-control" id="rate" placeholder="Enter rate" autocomplete="none">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="minIncome">Mức thu nhập tối thiểu để vay (triệu)</label>
+                                        <input name="minIncome" type="number" class="form-control" id="minIncome" placeholder="Enter min income" autocomplete="none">
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +83,7 @@
                                 </div>
                                 <div class="form-check" style="display: inline-block">
                                     <input class="form-check-input" type="radio" name="checkbox1" id="checkbox1" onclick="toggleCheckboxes(this)">
-                                    <label class="form-check-label">Chọn ảnh có sẵn (Khuyến nghị ảnh 400px X 570-580px)</label>
+                                    <label class="form-check-label">Chọn ảnh có sẵn </label>
                                 </div>
 
                             </div>
@@ -88,7 +101,7 @@
                             <div class="form-group" id="uploadImage">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="customFile" name="image">
-                                    <label class="custom-file-label" for="customFile">Chọn ảnh</label>
+                                    <label class="custom-file-label" for="customFile">Chọn ảnh (Khuyến nghị ảnh 400px X 570-580px)</label>
                                 </div>
                             </div>
 
@@ -118,7 +131,9 @@
                           <th style="width: 100px">Tiêu đề</th>
                           <th style="width: 150px">Nội dung</th>
                           <th>Gói vay</th>
-                          <th>Lãi</th>
+                          <th>Thời hạn</th>
+                          <th>Lãi suất</th>
+                          <th>Thu nhập tối thiểu</th>
                           <th>Ảnh</th>
                           <th>Status</th>
                         </tr>
@@ -127,11 +142,25 @@
                           @foreach ($loans as $item)
                               <tr>
                                     <td>{{ $item->id }}</td>
-                                    <td style="width: 150px" class="break-word">{{ $item->title }}</td>
-                                    <td style="width: 250px" class="break-word">{{ $item->content }}</td>
-                                    <td>{{ $item->loan }}</td>
-                                    <td>{{ $item->rate . '%/' . $item->period }}</td>
-                                    <td><img src="{{ $item->image }}" alt="" style="width: 80px" /></td>
+                                    @php
+                                        $title = $item->title;
+                                        if (strlen(strip_tags($title)) > 10) {
+                                            $title = substr(strip_tags($title), 0, 10) . '...';
+                                        }
+                                    @endphp
+                                    <td>{{ $title }}</td>
+                                    @php
+                                        $content = $item->content;
+                                        if (strlen(strip_tags($content)) > 15) {
+                                            $content = substr(strip_tags($content), 0, 15) . '...';
+                                        }
+                                    @endphp
+                                    <td>{{ $content }}</td>
+                                    <td>{{ $item->amount }} triệu</td>
+                                    <td>{{ $item->duration }} tháng</td>
+                                    <td>{{ $item->rate }}%</td>
+                                    <td>{{ $item->minIncome }} triệu</td>
+                                    <td><img src="{{ $item->image }}" alt="" style="width: 60px" /></td>
                                     <td>
                                         <form>
                                             <div class="form-group">
@@ -164,6 +193,9 @@
                     </table>
                   </div>
                   <!-- /.card-body -->
+                  <div class="card-footer">
+                    {{ $loans->links('pagination::bootstrap-4') }}
+                </div>
                 </div>
                 <!-- /.card -->
               </div>

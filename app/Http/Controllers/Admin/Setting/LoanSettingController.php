@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class LoanSettingController extends Controller
 {
     public function show(){
-        $loans = Sale::all();
+        $loans = Sale::paginate(10);
         $customerImage = Image::where('type', 'sale')->get();
         return view('admin.pages.settings.loan', ['loans' => $loans, 'customerImage' => $customerImage]);
     }
@@ -18,20 +18,22 @@ class LoanSettingController extends Controller
     public function add(Request $request){
         try{
             $request->validate([
-                'title' => 'required',
-                'content' => 'required',
-                'loan' => 'required',
-                'rate' => 'required',
-                'period' => 'required',
+                'title' => 'required|string',
+                'content' => 'required|string',
+                'amount' => 'required|string',
+                'duration' => 'required|string',
+                'rate' => 'required|string',
+                'minIncome' => 'required|string',
             ]);
 
             $loan = [];
 
             $loan['title'] = $request->input('title');
             $loan['content'] = $request->input('content');
-            $loan['loan'] = $request->input('loan');
-            $loan['rate'] = floatval($request->input('rate'));
-            $loan['period'] = $request->input('period');
+            $loan['amount'] = $request->input('amount');
+            $loan['duration'] = $request->input('duration');
+            $loan['rate'] = $request->input('rate');
+            $loan['minIncome'] = $request->input('minIncome');
             $loan['status'] = false;
 
             if ($request->input('checkbox2') !== null) {
@@ -43,14 +45,14 @@ class LoanSettingController extends Controller
                 $originalName = $image->getClientOriginalName();
                 $imageName = time().'.'.$image->getClientOriginalExtension();
 
-                $image->storeAs("images/customer", $imageName, 'public');
+                $image->storeAs("images/sale", $imageName, 'public');
 
-                $imagePath = "/storage/images/customer/{$imageName}";
+                $imagePath = "/storage/images/sale/{$imageName}";
 
                 $imageModel = new Image();
                 $imageModel->file = $imagePath;
                 $imageModel->filename = $originalName;
-                $imageModel->type = 'customer';
+                $imageModel->type = 'sale';
                 $imageModel->save();
 
                 $loan['image'] = $imagePath;

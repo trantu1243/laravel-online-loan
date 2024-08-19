@@ -25,6 +25,8 @@ class Setting extends Model
         'mb_logo_footer',
         'dieu_khoan_xu_ly_du_lieu_ca_nhan',
         'dieu_khoan_giao_dich',
-        'mb_about_image'
+        'mb_about_image',
+        'hotline',
+        'link_mes'
     ];
 }

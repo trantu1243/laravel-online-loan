@@ -28,6 +28,10 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, $remember)){
             toastr()->success('Đăng nhập thành công');
+
+            $user = Auth::user();
+            if ($user->role == 'sale') return redirect(route('show-sale'));
+            if ($user->role == 'censor') return redirect(route('show-censor'));
             return redirect(route('dashboard'));
         }
         toastr()->error('Username hoặc password không chính xác');

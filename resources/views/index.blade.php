@@ -1860,7 +1860,7 @@
 
     #BOX31,
     #GROUP103 {
-      height: 652px;
+      height: 850px;
     }
 
     #BOX31>.ladi-box,
@@ -1930,6 +1930,10 @@
     #FORM_ITEM7011,
     #BUTTON25,
     #FORM_ITEM4,
+    #FORM_ITEM5,
+    #FORM_ITEM6,
+    #FORM_ITEM9,
+    #FORM_ITEM13,
     #FORM_ITEM8,
     #FORM_ITEM72,
     #FORM_ITEM76,
@@ -1939,6 +1943,10 @@
     #FORM_ITEM1011,
     #BUTTON_TEXT27,
     #FORM_ITEM12,
+    #FORM_ITEM15,
+    #FORM_ITEM16,
+    #FORM_ITEM17,
+    #FORM_ITEM18,
     #FORM_ITEM14,
     #FORM_ITEM74,
     #FORM_ITEM77,
@@ -2147,7 +2155,11 @@
 
     #BUTTON25,
     #FORM_ITEM2,
-    #FORM_ITEM4 {
+    #FORM_ITEM4,
+    #FORM_ITEM5,
+    #FORM_ITEM6,
+    #FORM_ITEM9,
+    #FORM_ITEM13 {
       height: 40px;
     }
 
@@ -2236,11 +2248,16 @@
     #PARAGRAPH72>.ladi-paragraph,
     #PARAGRAPH73>.ladi-paragraph,
     #PARAGRAPH733>.ladi-paragraph,
+    #PARAGRAPH734>.ladi-paragraph,
+    #PARAGRAPH735>.ladi-paragraph,
+    #PARAGRAPH736>.ladi-paragraph,
+    #PARAGRAPH737>.ladi-paragraph,
     #PARAGRAPH75>.ladi-paragraph,
     #PARAGRAPH79>.ladi-paragraph,
     #PARAGRAPH80>.ladi-paragraph,
     #PARAGRAPH81>.ladi-paragraph,
     #PARAGRAPH82>.ladi-paragraph,
+    #PARAGRAPH823>.ladi-paragraph,
     #PARAGRAPH820>.ladi-paragraph,
     #PARAGRAPH84>.ladi-paragraph,
     #PARAGRAPH238>.ladi-paragraph,
@@ -2281,9 +2298,32 @@
       left: 0px;
     }
 
+    #PARAGRAPH734 {
+      top: 377px;
+      left: 0px;
+    }
+
+
+    #PARAGRAPH735 {
+      top: 441px;
+      left: 0px;
+    }
+
+
+    #PARAGRAPH736 {
+      top: 505px;
+      left: 0px;
+    }
+
+
+    #PARAGRAPH737 {
+      top: 569px;
+      left: 0px;
+    }
+
     #PARAGRAPH74,
     #PARAGRAPH242 {
-      top: 377px;
+      top: 633px;
       left: 0px;
     }
 
@@ -2309,7 +2349,7 @@
     }
 
     #PARAGRAPH76 {
-      top: 497.246px;
+      top: 753.246px;
     }
 
     #PARAGRAPH76>.ladi-paragraph,
@@ -2323,7 +2363,7 @@
     }
 
     #PARAGRAPH77 {
-      top: 474.246px;
+      top: 730.246px;
     }
 
     #PARAGRAPH77>.ladi-paragraph,
@@ -2342,7 +2382,7 @@
 
     #IMAGE146,
     #IMAGE153 {
-      top: 434.763px;
+      top: 690.763px;
     }
 
     #IMAGE146>.ladi-image>.ladi-image-background,
@@ -3925,7 +3965,7 @@
       }
 
       #GROUP180 {
-        top: 109.154px;
+        top: 19.154px;
         left: 753px;
       }
 
@@ -3937,7 +3977,11 @@
       #GROUP102,
       #BUTTON25,
       #FORM_ITEM2,
-      #FORM_ITEM4 {
+      #FORM_ITEM4,
+      #FORM_ITEM5,
+      #FORM_ITEM6,
+      #FORM_ITEM9,
+      #FORM_ITEM13 {
         width: 362.19px;
       }
 
@@ -3975,7 +4019,7 @@
       }
 
       #BUTTON25 {
-        top: 480px;
+        top: 712px;
       }
 
       #FORM_ITEM4,
@@ -3983,8 +4027,23 @@
         top: 68.75px;
       }
 
+      #FORM_ITEM5{
+        top: 377px
+      }
+      #FORM_ITEM6{
+        top: 441px;
+      }
+
+      #FORM_ITEM9{
+        top: 505px;
+      }
+
+      #FORM_ITEM13{
+        top: 569px;
+      }
+
       #FORM_ITEM8 {
-        top: 388px;
+        top: 644px;
       }
 
       #FORM_ITEM72 {
@@ -4026,7 +4085,7 @@
       }
 
       #IMAGE78 {
-        top: 77.6px;
+        top: 0px;
         left: 1113.5px;
       }
 
@@ -4115,6 +4174,10 @@
       #BUTTON27,
       #FORM_ITEM11,
       #FORM_ITEM12,
+      #FORM_ITEM15,
+      #FORM_ITEM16,
+      #FORM_ITEM17,
+      #FORM_ITEM18,
       #BUTTON42,
       #FORM_ITEM67,
       #FORM_ITEM68 {
@@ -5431,6 +5494,10 @@
       #BUTTON_TEXT25,
       #FORM_ITEM2,
       #FORM_ITEM4,
+      #FORM_ITEM5,
+      #FORM_ITEM6,
+      #FORM_ITEM9,
+      #FORM_ITEM13,
       #FORM_ITEM8,
       #FORM_ITEM10,
       #FORM_ITEM101,
@@ -5458,12 +5525,28 @@
 
       #BUTTON25,
       #BUTTON40 {
-        top: 358px;
+        top: 422px;
       }
 
       #FORM_ITEM4,
       #FORM_ITEM56 {
         top: 69px;
+      }
+
+      #FORM_ITEM5{
+        top: 377px;
+      }
+
+      #FORM_ITEM6{
+        top: 441px;
+      }
+
+      #FORM_ITEM9{
+        top: 505px;
+      }
+
+      #FORM_ITEM13{
+        top: 569px;
       }
 
       #FORM_ITEM8,
@@ -5517,7 +5600,7 @@
       }
 
       #SECTION13 {
-        height: 656.306px;
+        height: 846.306px;
       }
 
       #GROUP196,
@@ -5526,7 +5609,7 @@
       #GROUP109,
       #BOX32 {
         width: 402.551px;
-        height: 648px;
+        height: 831px;
       }
 
       #GROUP196 {
@@ -5591,7 +5674,7 @@
       }
 
       #BUTTON27 {
-        top: 463.812px;
+        top: 687.812px;
         left: 0.41625px;
       }
 
@@ -5602,6 +5685,10 @@
 
       #FORM_ITEM11,
       #FORM_ITEM12,
+      #FORM_ITEM15,
+      #FORM_ITEM16,
+      #FORM_ITEM17,
+      #FORM_ITEM18,
       #FORM_ITEM77,
       #FORM_ITEM67,
       #FORM_ITEM68 {
@@ -5614,9 +5701,25 @@
         top: 62px;
       }
 
+      #FORM_ITEM15{
+        top: 356px;
+      }
+
+      #FORM_ITEM16{
+        top: 417px;
+      }
+
+      #FORM_ITEM17{
+        top: 478px;
+      }
+
+      #FORM_ITEM18{
+        top: 539px;
+      }
+
       #FORM_ITEM14,
       #FORM_ITEM70 {
-        top: 370.305px;
+        top: 614.305px;
       }
 
       #FORM_ITEM74,
@@ -5649,6 +5752,7 @@
       }
 
       #PARAGRAPH82,
+      #PARAGRAPH823,
       #PARAGRAPH820 {
         width: 100%;
       }
@@ -5672,13 +5776,33 @@
         left: 0.24975px;
       }
 
+      #PARAGRAPH823 {
+        top: 356.102px;
+        left: 0.24975px;
+      }
+
+      #PARAGRAPH824 {
+        top: 417.102px;
+        left: 0.24975px;
+      }
+
+      #PARAGRAPH825 {
+        top: 478.102px;
+        left: 0.24975px;
+      }
+
+      #PARAGRAPH826 {
+        top: 539.102px;
+        left: 0.24975px;
+      }
+
       #PARAGRAPH820 {
         top: 254.102px;
         left: 0.24975px;
       }
 
       #PARAGRAPH83 {
-        top: 357.507px;
+        top: 601.507px;
         left: 0.24975px;
       }
 
@@ -5690,8 +5814,8 @@
       #PARAGRAPH85,
       #PARAGRAPH262 {
         width: 169px;
-        top: 484.801px;
-        left: 49.0027px;
+        top: 728.801px;
+        left: 48.0027px;
       }
 
       #PARAGRAPH86,
@@ -5700,12 +5824,12 @@
       }
 
       #PARAGRAPH86 {
-        top: 461.801px;
-        left: 134.22px;
+        top: 705.801px;
+        left: 133.22px;
       }
 
       #IMAGE151 {
-        top: 423px;
+        top: 667px;
         left: 352.466px;
       }
 
@@ -6975,11 +7099,9 @@
                                 <div class='ladi-form-item'><select tabindex="4" name="salaryType" required
                                     class="ladi-form-control ladi-form-control-select" data-selected="">
                                     <option value="" class="ladi-hidden">Chọn nhóm khách hàng</option>
-                                    <option value="Cán bộ công chức viên chức Nhà nước">Cán bộ công chức viên chức Nhà nước</option>
-                                    <option value="Nhân viên văn phòng (nhận lương chuyển khoản)">Nhân viên văn phòng (nhận lương chuyển khoản)</option>
-                                    <option value="Công nhân (nhận lương chuyển khoản)">Công nhân (nhận lương chuyển khoản)</option>
-                                    <option value="Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy">Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy</option>
-                                    <option value="Khác (lương tiền mặt, kinh doanh tự do,…)">Khác (lương tiền mặt, kinh doanh tự do,…)</option>
+                                    @foreach ($subjects as $item)
+                                        <option value="{{ $item->subject }}">{{ $item->subject }}</option>
+                                    @endforeach
                                   </select>
                                 </div>
                               </div>
@@ -7042,6 +7164,34 @@
                                     pattern="(\+84|0)(9|8|7|5|3)[0-9]{8}" value="" /></div>
                               </div>
                             </div>
+                            <div id="FORM_ITEM5" class='ladi-element'>
+                                <div class="ladi-form-item-container">
+                                    <div class="ladi-form-item-background"></div>
+                                    <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="linkfb" required
+                                        class="ladi-form-control" type="text" placeholder="Nhập link facebook" value="" /></div>
+                                </div>
+                              </div>
+                            <div id="FORM_ITEM6" class='ladi-element'>
+                                <div class="ladi-form-item-container">
+                                    <div class="ladi-form-item-background"></div>
+                                    <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="amount" required
+                                        class="ladi-form-control" type="number" placeholder="Nhập số tiền vay (triệu đồng)" value="" /></div>
+                                </div>
+                            </div>
+                            <div id="FORM_ITEM9" class='ladi-element'>
+                                <div class="ladi-form-item-container">
+                                    <div class="ladi-form-item-background"></div>
+                                    <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="duration" required
+                                        class="ladi-form-control" type="number" placeholder="Nhập thời hạn vay (tháng)" value="" /></div>
+                                </div>
+                            </div>
+                            <div id="FORM_ITEM13" class='ladi-element'>
+                                <div class="ladi-form-item-container">
+                                    <div class="ladi-form-item-background"></div>
+                                    <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="income" required
+                                        class="ladi-form-control" type="number" placeholder="Nhập mức thu nhập (triệu đồng)" value="" /></div>
+                                </div>
+                            </div>
                             <div id="FORM_ITEM8" class='ladi-element'>
                               <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
@@ -7057,80 +7207,7 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- <div id="FORM_ITEM72" class='ladi-element'>
-                              <div class="ladi-form-item-container">
-                                <div class="ladi-form-item-background"></div>
-                                <div class='ladi-form-item'><select tabindex="4" name="livingPlace" required
-                                    class="ladi-form-control ladi-form-control-select" data-selected="">
-                                    <option value="" class="ladi-hidden">Chọn Tỉnh/Thành Phố</option>
-                                    <option value="Hà Nội">Hà Nội</option>
-                                    <option value="TP HCM">TP HCM</option>
-                                    <option value="Đà Nẵng">Đà Nẵng</option>
-                                    <option value="An Giang">An Giang</option>
-                                    <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
-                                    <option value="Bắc Giang">Bắc Giang</option>
-                                    <option value="Bắc Kạn">Bắc Kạn</option>
-                                    <option value="Bạc Liêu">Bạc Liêu</option>
-                                    <option value="Bắc Ninh">Bắc Ninh</option>
-                                    <option value="Bến Tre">Bến Tre</option>
-                                    <option value="Bình Định">Bình Định</option>
-                                    <option value="Bình Dương">Bình Dương</option>
-                                    <option value="Bình Phước">Bình Phước</option>
-                                    <option value="Bình Thuận">Bình Thuận</option>
-                                    <option value="Cà Mau">Cà Mau</option>
-                                    <option value="Cần Thơ">Cần Thơ</option>
-                                    <option value="Cao Bằng">Cao Bằng</option>
-                                    <option value="Đắk Lắk">Đắk Lắk</option>
-                                    <option value="Đắk Nông">Đắk Nông</option>
-                                    <option value="Điện Biên">Điện Biên</option>
-                                    <option value="Đồng Nai">Đồng Nai</option>
-                                    <option value="Đồng Tháp">Đồng Tháp</option>
-                                    <option value="Gia Lai">Gia Lai</option>
-                                    <option value="Hà Giang">Hà Giang</option>
-                                    <option value="Hà Nam">Hà Nam</option>
-                                    <option value="Hà Tĩnh">Hà Tĩnh</option>
-                                    <option value="Hải Dương">Hải Dương</option>
-                                    <option value="Hải Phòng">Hải Phòng</option>
-                                    <option value="Hậu Giang">Hậu Giang</option>
-                                    <option value="Hòa Bình">Hòa Bình</option>
-                                    <option value="Hưng Yên">Hưng Yên</option>
-                                    <option value="Khánh Hòa">Khánh Hòa</option>
-                                    <option value="Kiên Giang">Kiên Giang</option>
-                                    <option value="Kon Tum">Kon Tum</option>
-                                    <option value="Lai Châu">Lai Châu</option>
-                                    <option value="Lâm Đồng">Lâm Đồng</option>
-                                    <option value="Lạng Sơn">Lạng Sơn</option>
-                                    <option value="Lào Cai">Lào Cai</option>
-                                    <option value="Long An">Long An</option>
-                                    <option value="Nam Định">Nam Định</option>
-                                    <option value="Nghệ An">Nghệ An</option>
-                                    <option value="Ninh Bình">Ninh Bình</option>
-                                    <option value="Ninh Thuận">Ninh Thuận</option>
-                                    <option value="Phú Thọ">Phú Thọ</option>
-                                    <option value="Phú Yên">Phú Yên</option>
-                                    <option value="Quảng Bình">Quảng Bình</option>
-                                    <option value="Quảng Nam">Quảng Nam</option>
-                                    <option value="Quảng Ngãi">Quảng Ngãi</option>
-                                    <option value="Quảng Ninh">Quảng Ninh</option>
-                                    <option value="Quảng Trị">Quảng Trị</option>
-                                    <option value="Sóc Trăng">Sóc Trăng</option>
-                                    <option value="Sơn La">Sơn La</option>
-                                    <option value="Tây Ninh">Tây Ninh</option>
-                                    <option value="Thái Bình">Thái Bình</option>
-                                    <option value="Thái Nguyên">Thái Nguyên</option>
-                                    <option value="Thanh Hóa">Thanh Hóa</option>
-                                    <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
-                                    <option value="Tiền Giang">Tiền Giang</option>
-                                    <option value="Trà Vinh">Trà Vinh</option>
-                                    <option value="Tuyên Quang">Tuyên Quang</option>
-                                    <option value="Vĩnh Long">Vĩnh Long</option>
-                                    <option value="Vĩnh Phúc">Vĩnh Phúc</option>
-                                    <option value="Yên Bái">Yên Bái</option>
 
-                                  </select>
-                                </div>
-                              </div>
-                            </div> -->
                             <div id="FORM_ITEM76" class='ladi-element'>
                               <div class="ladi-form-item-container">
                                 <div class="ladi-form-item-background"></div>
@@ -7169,6 +7246,22 @@
                             <label class="form-check-label" for="inlineRadio2">Thứ 7</label>
                           </div>
                         </div>
+                        <div id="PARAGRAPH734" class='ladi-element'>
+                            <div class='ladi-paragraph'>Link facebook<span
+                                style="color: rgb(231, 37, 43);">*</span></div>
+                          </div>
+                          <div id="PARAGRAPH735" class='ladi-element'>
+                            <div class='ladi-paragraph'>Số tiền vay<span
+                                style="color: rgb(231, 37, 43);">*</span></div>
+                          </div>
+                          <div id="PARAGRAPH736" class='ladi-element'>
+                            <div class='ladi-paragraph'>Thời hạn vay<span
+                                style="color: rgb(231, 37, 43);">*</span></div>
+                          </div>
+                          <div id="PARAGRAPH737" class='ladi-element'>
+                            <div class='ladi-paragraph'>Mức thu nhập<span
+                                style="color: rgb(231, 37, 43);">*</span></div>
+                          </div>
                         <div id="PARAGRAPH74" class='ladi-element'>
                           <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử lý dữ liệu
                           </div>
@@ -7241,24 +7334,13 @@
                                 <div id="FORM_ITEM10" class='ladi-element'>
                                   <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
-                                    <!-- <div class='ladi-form-item ladi-form-checkbox ladi-form-checkbox-horizontal'>
-                                      <div class="ladi-form-checkbox-box-item">
-                                        <div class="ladi-form-checkbox-item"><input tabindex="5" name="salaryType"
-                                            required type="radio" value="Tiền mặt" /><span data-checked="false">Tiền
-                                            mặt</span></div>
-                                        <div class="ladi-form-checkbox-item"><input tabindex="5" name="salaryType"
-                                            required type="radio" value="Chuyển khoản" /><span
-                                            data-checked="false">Chuyển khoản</span></div>
-                                      </div>
-                                    </div> -->
+
                                     <div class='ladi-form-item'><select tabindex="4" name="salaryType" required
                                         class="ladi-form-control ladi-form-control-select" data-selected="">
                                         <option value="" class="ladi-hidden">Chọn nhóm khách hàng</option>
-                                        <option value="Cán bộ công chức viên chức Nhà nước">Cán bộ công chức viên chức Nhà nước</option>
-                                        <option value="Nhân viên văn phòng (nhận lương chuyển khoản)">Nhân viên văn phòng (nhận lương chuyển khoản)</option>
-                                        <option value="Công nhân (nhận lương chuyển khoản)">Công nhân (nhận lương chuyển khoản)</option>
-                                        <option value="Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy">Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy</option>
-                                        <option value="Khác (lương tiền mặt, kinh doanh tự do,…)">Khác (lương tiền mặt, kinh doanh tự do,…)</option>
+                                        @foreach ($subjects as $item)
+                                            <option value="{{ $item->subject }}">{{ $item->subject }}</option>
+                                        @endforeach
                                       </select>
                                     </div>
                                   </div>
@@ -7337,79 +7419,39 @@
                                     </div>
                                   </div>
                                 </div>
-                                <!-- <div id="FORM_ITEM74" class='ladi-element'>
-                                  <div class="ladi-form-item-container">
-                                    <div class="ladi-form-item-background"></div>
-                                    <div class='ladi-form-item'><select tabindex="4" name="livingPlace" required
-                                        class="ladi-form-control ladi-form-control-select" data-selected="">
-                                        <option value="" class="ladi-hidden">Chọn Tỉnh/Thành Phố</option>
-                                        <option value="Hà Nội">Hà Nội</option>
-                                        <option value="TP HCM">TP HCM</option>
-                                        <option value="Đà Nẵng">Đà Nẵng</option>
-                                        <option value="An Giang">An Giang</option>
-                                        <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
-                                        <option value="Bắc Giang">Bắc Giang</option>
-                                        <option value="Bắc Kạn">Bắc Kạn</option>
-                                        <option value="Bạc Liêu">Bạc Liêu</option>
-                                        <option value="Bắc Ninh">Bắc Ninh</option>
-                                        <option value="Bến Tre">Bến Tre</option>
-                                        <option value="Bình Định">Bình Định</option>
-                                        <option value="Bình Dương">Bình Dương</option>
-                                        <option value="Bình Phước">Bình Phước</option>
-                                        <option value="Bình Thuận">Bình Thuận</option>
-                                        <option value="Cà Mau">Cà Mau</option>
-                                        <option value="Cần Thơ">Cần Thơ</option>
-                                        <option value="Cao Bằng">Cao Bằng</option>
-                                        <option value="Đắk Lắk">Đắk Lắk</option>
-                                        <option value="Đắk Nông">Đắk Nông</option>
-                                        <option value="Điện Biên">Điện Biên</option>
-                                        <option value="Đồng Nai">Đồng Nai</option>
-                                        <option value="Đồng Tháp">Đồng Tháp</option>
-                                        <option value="Gia Lai">Gia Lai</option>
-                                        <option value="Hà Giang">Hà Giang</option>
-                                        <option value="Hà Nam">Hà Nam</option>
-                                        <option value="Hà Tĩnh">Hà Tĩnh</option>
-                                        <option value="Hải Dương">Hải Dương</option>
-                                        <option value="Hải Phòng">Hải Phòng</option>
-                                        <option value="Hậu Giang">Hậu Giang</option>
-                                        <option value="Hòa Bình">Hòa Bình</option>
-                                        <option value="Hưng Yên">Hưng Yên</option>
-                                        <option value="Khánh Hòa">Khánh Hòa</option>
-                                        <option value="Kiên Giang">Kiên Giang</option>
-                                        <option value="Kon Tum">Kon Tum</option>
-                                        <option value="Lai Châu">Lai Châu</option>
-                                        <option value="Lâm Đồng">Lâm Đồng</option>
-                                        <option value="Lạng Sơn">Lạng Sơn</option>
-                                        <option value="Lào Cai">Lào Cai</option>
-                                        <option value="Long An">Long An</option>
-                                        <option value="Nam Định">Nam Định</option>
-                                        <option value="Nghệ An">Nghệ An</option>
-                                        <option value="Ninh Bình">Ninh Bình</option>
-                                        <option value="Ninh Thuận">Ninh Thuận</option>
-                                        <option value="Phú Thọ">Phú Thọ</option>
-                                        <option value="Phú Yên">Phú Yên</option>
-                                        <option value="Quảng Bình">Quảng Bình</option>
-                                        <option value="Quảng Nam">Quảng Nam</option>
-                                        <option value="Quảng Ngãi">Quảng Ngãi</option>
-                                        <option value="Quảng Ninh">Quảng Ninh</option>
-                                        <option value="Quảng Trị">Quảng Trị</option>
-                                        <option value="Sóc Trăng">Sóc Trăng</option>
-                                        <option value="Sơn La">Sơn La</option>
-                                        <option value="Tây Ninh">Tây Ninh</option>
-                                        <option value="Thái Bình">Thái Bình</option>
-                                        <option value="Thái Nguyên">Thái Nguyên</option>
-                                        <option value="Thanh Hóa">Thanh Hóa</option>
-                                        <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
-                                        <option value="Tiền Giang">Tiền Giang</option>
-                                        <option value="Trà Vinh">Trà Vinh</option>
-                                        <option value="Tuyên Quang">Tuyên Quang</option>
-                                        <option value="Vĩnh Long">Vĩnh Long</option>
-                                        <option value="Vĩnh Phúc">Vĩnh Phúc</option>
-                                        <option value="Yên Bái">Yên Bái</option>
+                                <div id="FORM_ITEM15" class='ladi-element'>
+                                    <div class="ladi-form-item-container">
+                                      <div class="ladi-form-item-background"></div>
+                                      <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="linkfb"
+                                          required class="ladi-form-control" type="text" placeholder="Nhập link facebook"
+                                          value="" /></div>
+                                    </div>
+                                </div>
 
-                                      </select></div>
-                                  </div>
-                                </div> -->
+                                <div id="FORM_ITEM16" class='ladi-element'>
+                                    <div class="ladi-form-item-container">
+                                      <div class="ladi-form-item-background"></div>
+                                      <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="amount"
+                                          required class="ladi-form-control" type="number" placeholder="Nhập số tiền vay (triệu đồng)"
+                                          value="" /></div>
+                                    </div>
+                                </div>
+                                <div id="FORM_ITEM17" class='ladi-element'>
+                                    <div class="ladi-form-item-container">
+                                      <div class="ladi-form-item-background"></div>
+                                      <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="duration"
+                                          required class="ladi-form-control" type="number" placeholder="Nhập thời hạn vay (tháng)"
+                                          value="" /></div>
+                                    </div>
+                                </div>
+                                <div id="FORM_ITEM18" class='ladi-element'>
+                                    <div class="ladi-form-item-container">
+                                      <div class="ladi-form-item-background"></div>
+                                      <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="income"
+                                          required class="ladi-form-control" type="number" placeholder="Nhập mức thu nhập (triệu đồng)"
+                                          value="" /></div>
+                                    </div>
+                                </div>
                                 <div id="FORM_ITEM77" class='ladi-element'>
                                   <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
@@ -7439,6 +7481,22 @@
                               <div class='ladi-paragraph'>Thời gian nhận cuộc gọi tư vấn<span
                                   style="color: rgb(231, 37, 43);">*</span></div>
                             </div>
+                            <div id="PARAGRAPH823" class='ladi-element'>
+                                <div class='ladi-paragraph'>Link facebook<span
+                                    style="color: rgb(231, 37, 43);">*</span></div>
+                            </div>
+                            <div id="PARAGRAPH824" class='ladi-element'>
+                                <div class='ladi-paragraph'>Số tiền vay<span
+                                    style="color: rgb(231, 37, 43);">*</span></div>
+                            </div>
+                            <div id="PARAGRAPH825" class='ladi-element'>
+                                <div class='ladi-paragraph'>Thời hạn vay<span
+                                    style="color: rgb(231, 37, 43);">*</span></div>
+                            </div>
+                            <div id="PARAGRAPH826" class='ladi-element'>
+                                <div class='ladi-paragraph'>Mức thu nhập<span
+                                    style="color: rgb(231, 37, 43);">*</span></div>
+                            </div>
                             <div id="PARAGRAPH8201" class='ladi-element'>
                               <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="formMobileTimeCall" id="formMobileTimeCall1" value="option1" >
@@ -7453,10 +7511,7 @@
                               <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử lý dữ liệu
                               </div>
                             </div>
-                            <!-- <div id="PARAGRAPH84" class='ladi-element'>
-                              <div class='ladi-paragraph'>Tỉnh/Thành phố
-                              </div>
-                            </div> -->
+
                           </div>
                         </div>
                       </div>
@@ -7596,8 +7651,7 @@
                                         đa)</span><br></h3>
                                 </div>
                                 <div id="HEADLINE35" class='ladi-element'>
-                                    <h3 class='ladi-headline ladi-transition'><span style="font-weight: 400;">Lãi suất (tạm
-                                        tính) *</span><br></h3>
+                                    <h3 class='ladi-headline ladi-transition'><span style="font-weight: 400;">Thời hạn</span><br></h3>
                                 </div>
                                 <div id="LINE18" class='ladi-element'>
                                     <div class='ladi-line'>
@@ -7610,11 +7664,11 @@
                                     </div>
                                 </div>
                                 <div id="HEADLINE36" class='ladi-element'>
-                                    <h3 class='ladi-headline ladi-transition'>{{ $item->loan }}</h3>
+                                    <h3 class='ladi-headline ladi-transition'>{{ $item->amount }} triệu</h3>
                                 </div>
                                 <div id="HEADLINE37" class='ladi-element'>
                                     <h3 class='ladi-headline ladi-transition'><span
-                                        style="font-size: 22px; color: rgb(231, 37, 43);">{{ $item->rate }}%</span> /{{ $item->period }}</h3>
+                                        style="font-size: 22px; color: rgb(231, 37, 43);">{{ $item->duration }} tháng</span></h3>
                                 </div>
                                 <div id="LINE20" class='ladi-element'>
                                     <div class='ladi-line'>
@@ -8119,84 +8173,14 @@
                         style="color: rgb(231, 37, 43);">*</span>
                       <input type="text" placeholder="Nhập số CMND/CCCD (9-12 số)" class="form-control" name="idCard">
                     </div>
-                    <!-- <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label font-title-form">Tỉnh/ thành phố</label>
-                      <select class="form-select" aria-label="" name="livingPlace">
-                        <option value="Hà Nội">Hà Nội</option>
-                        <option value="TP HCM">TP HCM</option>
-                        <option value="Đà Nẵng">Đà Nẵng</option>
-                        <option value="An Giang">An Giang</option>
-                        <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
-                        <option value="Bắc Giang">Bắc Giang</option>
-                        <option value="Bắc Kạn">Bắc Kạn</option>
-                        <option value="Bạc Liêu">Bạc Liêu</option>
-                        <option value="Bắc Ninh">Bắc Ninh</option>
-                        <option value="Bến Tre">Bến Tre</option>
-                        <option value="Bình Định">Bình Định</option>
-                        <option value="Bình Dương">Bình Dương</option>
-                        <option value="Bình Phước">Bình Phước</option>
-                        <option value="Bình Thuận">Bình Thuận</option>
-                        <option value="Cà Mau">Cà Mau</option>
-                        <option value="Cần Thơ">Cần Thơ</option>
-                        <option value="Cao Bằng">Cao Bằng</option>
-                        <option value="Đắk Lắk">Đắk Lắk</option>
-                        <option value="Đắk Nông">Đắk Nông</option>
-                        <option value="Điện Biên">Điện Biên</option>
-                        <option value="Đồng Nai">Đồng Nai</option>
-                        <option value="Đồng Tháp">Đồng Tháp</option>
-                        <option value="Gia Lai">Gia Lai</option>
-                        <option value="Hà Giang">Hà Giang</option>
-                        <option value="Hà Nam">Hà Nam</option>
-                        <option value="Hà Tĩnh">Hà Tĩnh</option>
-                        <option value="Hải Dương">Hải Dương</option>
-                        <option value="Hải Phòng">Hải Phòng</option>
-                        <option value="Hậu Giang">Hậu Giang</option>
-                        <option value="Hòa Bình">Hòa Bình</option>
-                        <option value="Hưng Yên">Hưng Yên</option>
-                        <option value="Khánh Hòa">Khánh Hòa</option>
-                        <option value="Kiên Giang">Kiên Giang</option>
-                        <option value="Kon Tum">Kon Tum</option>
-                        <option value="Lai Châu">Lai Châu</option>
-                        <option value="Lâm Đồng">Lâm Đồng</option>
-                        <option value="Lạng Sơn">Lạng Sơn</option>
-                        <option value="Lào Cai">Lào Cai</option>
-                        <option value="Long An">Long An</option>
-                        <option value="Nam Định">Nam Định</option>
-                        <option value="Nghệ An">Nghệ An</option>
-                        <option value="Ninh Bình">Ninh Bình</option>
-                        <option value="Ninh Thuận">Ninh Thuận</option>
-                        <option value="Phú Thọ">Phú Thọ</option>
-                        <option value="Phú Yên">Phú Yên</option>
-                        <option value="Quảng Bình">Quảng Bình</option>
-                        <option value="Quảng Nam">Quảng Nam</option>
-                        <option value="Quảng Ngãi">Quảng Ngãi</option>
-                        <option value="Quảng Ninh">Quảng Ninh</option>
-                        <option value="Quảng Trị">Quảng Trị</option>
-                        <option value="Sóc Trăng">Sóc Trăng</option>
-                        <option value="Sơn La">Sơn La</option>
-                        <option value="Tây Ninh">Tây Ninh</option>
-                        <option value="Thái Bình">Thái Bình</option>
-                        <option value="Thái Nguyên">Thái Nguyên</option>
-                        <option value="Thanh Hóa">Thanh Hóa</option>
-                        <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
-                        <option value="Tiền Giang">Tiền Giang</option>
-                        <option value="Trà Vinh">Trà Vinh</option>
-                        <option value="Tuyên Quang">Tuyên Quang</option>
-                        <option value="Vĩnh Long">Vĩnh Long</option>
-                        <option value="Vĩnh Phúc">Vĩnh Phúc</option>
-                        <option value="Yên Bái">Yên Bái</option>
 
-                      </select>
-                    </div> -->
                     <div class="mb-3 ">
                       <label for="exampleInputPassword1" class="form-label font-title-form">Bạn thuộc nhóm khách hàng nào</label><span style="color: rgb(231, 37, 43);">*</span>
                       <select class="form-select" aria-label="" name="salaryType">
                         <option value="">Chọn nhóm khách hàng</option>
-                        <option value="Cán bộ công chức viên chức Nhà nước">Cán bộ công chức viên chức Nhà nước</option>
-                        <option value="Nhân viên văn phòng (nhận lương chuyển khoản)">Nhân viên văn phòng (nhận lương chuyển khoản)</option>
-                        <option value="Công nhân (nhận lương chuyển khoản)">Công nhân (nhận lương chuyển khoản)</option>
-                        <option value="Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy">Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy</option>
-                        <option value="Khác (lương tiền mặt, kinh doanh tự do,…)">Khác (lương tiền mặt, kinh doanh tự do,…)</option>
+                        @foreach ($subjects as $item)
+                            <option value="{{ $item->subject }}">{{ $item->subject }}</option>
+                        @endforeach
                       </select>
                     </div>
                     <div class="mb-3 ">
@@ -8232,6 +8216,27 @@
                         <option value="Thứ 7:14:00-16:00">14:00 - 16:00</option>
                         <option value="Thứ 7:16:00-17:30">16:00 - 17:30</option>
                       </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="linkfb" class="form-label font-title-form">Link facebook</label><span
+                        style="color: rgb(231, 37, 43);">*</span>
+                      <input type="text" placeholder="Nhập link facebook" class="form-control" name="linkfb">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="amount" class="form-label font-title-form">Số tiền cần vay</label><span
+                          style="color: rgb(231, 37, 43);">*</span>
+                        <input type="text" placeholder="Nhập số tiền cần vay (triệu đồng)" class="form-control" name="amount">
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkfb" class="form-label font-title-form">Thời hạn vay</label><span
+                          style="color: rgb(231, 37, 43);">*</span>
+                        <input type="text" placeholder="Nhập thời hạn vay (tháng)" class="form-control" name="duration">
+                    </div>
+                    <div class="mb-3">
+                        <label for="linkfb" class="form-label font-title-form">Mức thu nhập</label><span
+                          style="color: rgb(231, 37, 43);">*</span>
+                        <input type="text" placeholder="Nhập mức thu nhập (triệu đồng" class="form-control" name="income">
                     </div>
                     <div class="mb-1 d-flex">
                       <p class="mr-1"><span style="font-size: 12px;">Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử

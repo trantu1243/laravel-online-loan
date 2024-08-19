@@ -7,6 +7,7 @@ use App\Models\Code;
 use App\Models\Customer;
 use App\Models\Sale;
 use App\Models\Setting;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,11 +17,13 @@ class HomeController extends Controller
         $loans = Sale::where('status', true)->get();
         $customers = Customer::all();
         $code = Code::find(1);
+        $subjects = Subject::all();
         return view('index', [
             'setting' => $setting,
             'loans' => $loans,
             'customers' => $customers,
-            'code' => $code
+            'code' => $code,
+            'subjects' => $subjects
         ]);
     }
 }

@@ -1859,7 +1859,7 @@
 
     #BOX31,
     #GROUP103 {
-      height: 400px;
+      height: 600px;
     }
 
     #BOX31>.ladi-box,
@@ -2194,9 +2194,12 @@
         height: 66px;
     }
     #FORM_ITEM8,
-    #FORM_ITEM14,
     #FORM_ITEM70 {
-      height: 56px;
+      height: 36px;
+    }
+
+    #FORM_ITEM14{
+        height: 56px;
     }
 
     #FORM_ITEM8 .ladi-form-checkbox-item,
@@ -2295,7 +2298,7 @@
 
     #PARAGRAPH74,
     #PARAGRAPH242 {
-      top: 52px;
+      top: 452px;
       left: 0px;
     }
 
@@ -2321,7 +2324,7 @@
     }
 
     #PARAGRAPH76 {
-      top: 257.246px;
+      top: 476.246px;
     }
     #PARAGRAPH133>.ladi-paragraph,
     #PARAGRAPH134>.ladi-paragraph,
@@ -2336,7 +2339,7 @@
     }
 
     #PARAGRAPH77 {
-      top: 234.246px;
+      top: 476.246px;
     }
 
     #PARAGRAPH77>.ladi-paragraph,
@@ -2355,7 +2358,7 @@
 
     #IMAGE146,
     #IMAGE153 {
-      top: 110.763px;
+      top: 510.763px;
     }
 
     #IMAGE146>.ladi-image>.ladi-image-background,
@@ -3919,16 +3922,16 @@
       #GROUP105,
       #GROUP103,
       #BOX31 {
-        width: 447px;
+        width: 576px;
       }
 
       #GROUP180 {
-        top: 219.154px;
-        left: 753px;
+        top: 180.154px;
+        left: 650px;
       }
 
       #PARAGRAPH69 {
-        width: 426px;
+        width: 556px;
         left: 10.4766px;
       }
 
@@ -3936,7 +3939,7 @@
       #BUTTON25,
       #FORM_ITEM2,
       #FORM_ITEM4 {
-        width: 362.19px;
+        width: 500px;
       }
 
       #GROUP102 {
@@ -3955,7 +3958,7 @@
       #BUTTON_TEXT25,
       #FORM_ITEM9,
       #FORM_ITEM8 {
-        width: 362px;
+        width: 500px;
       }
 
       #FORM_ITEM7,
@@ -3974,7 +3977,7 @@
       }
 
       #BUTTON25 {
-        top: 240px;
+        top: 438px;
       }
 
       #FORM_ITEM4,
@@ -3983,11 +3986,11 @@
       }
 
       #FORM_ITEM9 {
-        top: 62px;
+        top: 310px;
       }
 
       #FORM_ITEM8 {
-        top: 148px;
+        top: 390px;
       }
 
       #FORM_ITEM72 {
@@ -4015,11 +4018,11 @@
       }
 
       #PARAGRAPH76 {
-        left: 68.3501px;
+        left: 368.3501px;
       }
 
       #PARAGRAPH133{
-        top: 150px;
+        top: 398px;
         left: 68px;
       }
 
@@ -5537,7 +5540,7 @@
       }
 
       #SECTION13 {
-        height: 436.306px;
+        height: 678.306px;
       }
 
       #GROUP196,
@@ -5546,7 +5549,7 @@
       #GROUP109,
       #BOX32 {
         width: 402.551px;
-        height: 418px;
+        height: 640px;
       }
 
       #GROUP196 {
@@ -5611,7 +5614,7 @@
       }
 
       #BUTTON27 {
-        top: 223.812px;
+        top: 445.812px;
         left: 0.41625px;
       }
 
@@ -5636,11 +5639,11 @@
 
       #FORM_ITEM14,
       #FORM_ITEM70 {
-        top: 150.305px;
+        top: 340.305px;
       }
 
       #FORM_ITEM17{
-        top: 60px;
+        top: 260px;
       }
 
       #FORM_ITEM74,
@@ -5702,7 +5705,7 @@
       }
 
       #PARAGRAPH83 {
-        top: 50.507px;
+        top: 430.507px;
         left: 0.24975px;
       }
 
@@ -5714,13 +5717,13 @@
       #PARAGRAPH85,
       #PARAGRAPH262 {
         width: 169px;
-        top: 264.401px;
+        top: 454.401px;
         left: 48.0027px;
       }
 
       #PARAGRAPH134{
         width: 150px;
-        top: 153.801px;
+        top: 353.801px;
         left: 49.0027px;
       }
 
@@ -5730,12 +5733,12 @@
       }
 
       #PARAGRAPH86 {
-        top: 241.801px;
+        top: 431.801px;
         left: 133.22px;
       }
 
       #IMAGE151 {
-        top: 116px;
+        top: 496px;
         left: 352.466px;
       }
 
@@ -6986,6 +6989,7 @@
                         <div id="FORM2" data-config-id="" class='ladi-element'>
                           <form action="{{ Route('post-confirm-v2', ['token' => $token]) }}" autocomplete="off" method="POST" class='ladi-form' id="FORM_TEXT25">
                             @csrf
+                            <iframe src="{{ Route('view-contract', ['token' => $token]) }}" width="500" height="300" title="Example Website"></iframe>
                             <div id="FORM_ITEM9" class='ladi-element'>
                                 <div class="ladi-form-item-container">
                                   <div class="ladi-form-item-background"></div>
@@ -7041,7 +7045,7 @@
                   </div>
                 </div>
                 <a
-                  href="https://www.lottefinance.vn/web/service/customer/termAndCond/userDataPolicies?csrt=11640075599545901093"
+                  href="{{ Route('view-contract', ['token' => $token]) }}"
                   target="_blank" id="PARAGRAPH133" class='ladi-element'>
                   <div class='ladi-paragraph'><span
                       style="font-style: normal; text-decoration-line: underline; font-weight: bold;">Xem hợp đồng điện tử</span></div>
@@ -7105,6 +7109,7 @@
                             <div id="FORM3" data-config-id="" class='ladi-element'>
                               <form action="{{ Route('post-confirm-v2', ['token' => $token]) }}" autocomplete="off" method="POST" class='ladi-form' id="form-submit">
                                 @csrf
+                                <iframe src="{{ Route('view-contract', ['token' => $token]) }}" width="363" height="242" title="Example Website"></iframe>
                                 <div id="FORM_ITEM17" class='ladi-element'>
                                   <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
@@ -7142,7 +7147,7 @@
                                   <div class='ladi-button'>
                                     <div class="ladi-button-background"></div>
                                     <div id="BUTTON_TEXT27" class='ladi-element ladi-button-headline'>
-                                      <p class='ladi-headline' id="btn-submit">ĐĂNG KÝ NGAY</p>
+                                      <p class='ladi-headline' id="btn-submit">TIẾP TỤC</p>
                                     </div>
                                   </div>
                                 </button>
@@ -7161,7 +7166,7 @@
                         </div>
                       </div>
                     </div>  <a
-                      href="https://www.lottefinance.vn/web/service/customer/termAndCond/userDataPolicies?csrt=11640075599545901093"
+                      href="{{ Route('view-contract', ['token' => $token]) }}"
                       target="_blank" id="PARAGRAPH134" class='ladi-element'>
                       <div class='ladi-paragraph'><span
                           style="font-style: normal; text-decoration-line: underline; font-weight: bold;">Xem hợp đồng điện tử</span></div>
@@ -7254,7 +7259,7 @@
     </div>
     {!! $code->question !!}
 
-   {!! $code->about_footer !!}
+    {!! $code->about_footer !!}
     <div id="SECTION_POPUP" class='ladi-section'>
       <div class='ladi-section-background'></div>
       <div class="ladi-container">

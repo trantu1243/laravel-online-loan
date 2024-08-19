@@ -31,9 +31,23 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="/admin/contract-template" class="nav-link {{ Route::currentRouteName() == 'contract-template' ? 'active' : '' }}">
+                    <i class="nav-icon fa fa-file-pdf-o"></i>
+                    <p>Hợp đồng điện tử</p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/admin/setting/loan" class="nav-link {{ Route::currentRouteName() == 'loan-setting' ? 'active' : '' }}">
+                    <i class="fa fa-money nav-icon"></i>
+                    <p>Các gói vay</p>
+                </a>
+            </li>
+
             @if(auth()->user()->role === 'ADMIN')
-                <li class="nav-item {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'loan-setting' || Route::currentRouteName() == 'customer-setting' || Route::currentRouteName() == 'show-code' || Route::currentRouteName() == 'show-others' ? 'menu-open' : '' }}">
-                    <a href="" class="nav-link {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'loan-setting' || Route::currentRouteName() == 'customer-setting' ? 'active' : '' }}">
+                <li class="nav-item {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'customer-setting' || Route::currentRouteName() == 'show-code' || Route::currentRouteName() == 'show-others' || Route::currentRouteName() == 'form-setting' ? 'menu-open' : '' }}">
+                    <a href="" class="nav-link">
                         <i class="nav-icon fa fa-cog"></i>
                         <p>Giao diện và cài đặt
                             <i class="fas fa-angle-left right"></i>
@@ -47,37 +61,29 @@
                             </a>
                         </li>
 
-                    </ul>
-
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/setting/loan" class="nav-link {{ Route::currentRouteName() == 'loan-setting' ? 'active' : '' }}">
+                            <a href="/admin/setting/form" class="nav-link {{ Route::currentRouteName() == 'form-setting' ? 'active' : '' }}">
                                 <i class="fa fa-genderless nav-icon"></i>
-                                <p>Các gói vay</p>
+                                <p>Form</p>
                             </a>
                         </li>
 
-                    </ul>
 
-                    <ul class="nav nav-treeview">
+
                         <li class="nav-item">
                             <a href="/admin/setting/customer" class="nav-link {{ Route::currentRouteName() == 'customer-setting' ? 'active' : '' }}">
                                 <i class="fa fa-genderless nav-icon"></i>
                                 <p>Đánh giá</p>
                             </a>
                         </li>
-                    </ul>
 
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="/admin/setting/code" class="nav-link {{ Route::currentRouteName() == 'show-code' ? 'active' : '' }}">
                                 <i class="fa fa-genderless nav-icon"></i>
                                 <p>Thêm code</p>
                             </a>
                         </li>
-                    </ul>
 
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="/admin/setting/others" class="nav-link {{ Route::currentRouteName() == 'show-others' ? 'active' : '' }}">
                                 <i class="fa fa-genderless nav-icon"></i>
@@ -85,6 +91,7 @@
                             </a>
                         </li>
                     </ul>
+
                 </li>
 
                 <li class="nav-item {{ Route::currentRouteName() == 'show-user' || Route::currentRouteName() == 'add-user' ? 'menu-open' : '' }}">
@@ -127,6 +134,13 @@
                     <a href="/admin/censor" class="nav-link {{ Route::currentRouteName() == 'show-censor' ? 'active' : '' }}">
                         <i class="fas fa-table nav-icon"></i>
                         <p>Danh sách khách hàng</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/admin/censor/reminder" class="nav-link {{ Route::currentRouteName() == 'show-reminder' ? 'active' : '' }}">
+                        <i class="fa fa-calendar nav-icon"></i>
+                        <p>Bộ nhắc nhở</p>
                     </a>
                 </li>
             @endif

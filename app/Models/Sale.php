@@ -13,9 +13,15 @@ class Sale extends Model
         'title',
         'content',
         'image',
-        'loan',
+        'amount',
+        'duration',
+        'status',
         'rate',
-        'period',
-        'status'
+        'minIncome'
     ];
+
+    public function customer()
+    {
+        return $this->hasMany(CustomerInfo::class);
+    }
 }

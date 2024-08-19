@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\CustomerInfo;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -15,6 +16,9 @@ class DashboardController extends Controller
         $idCard = "";
         $phone = "";
         $status = "";
+        $sale = "";
+        $censor = "";
+
         if ($request->input('idCard')) {
             $idCard = $request->input('idCard');
             $query->where('idCard', $request->input('idCard'));
@@ -30,12 +34,37 @@ class DashboardController extends Controller
             $query->where('status', $request->input('status'));
         }
 
+        if ($request->input('sale')) {
+            $sale = $request->input('sale');
+            $query->where('sale', $request->input('sale'));
+        }
+
+        if ($request->input('censor')) {
+            $censor = $request->input('censor');
+            $query->where('censor', $request->input('censor'));
+        }
+
         $customers = $query->paginate(20);
+        $sales = User::where('role', 'SALE')->orWhere('role', 'ADMIN')->get();
+        $censors = User::where('role', 'CENSOR')->orWhere('role', 'ADMIN')->get();
+
+        $count = $query->count();
+
+        $total = $query
+            ->join('sales', 'customer_infos.loan_id', '=', 'sales.id')
+            ->sum('sales.amount');
+
         return view('admin.pages.index', [
             'customers' => $customers,
+            'sales' => $sales,
+            'censors' => $censors,
             'idCard' => $idCard,
             'phone' => $phone,
-            'status' => $status
+            'status' => $status,
+            'sale' => $sale,
+            'censor' =>$censor,
+            'count' => $count,
+            'total' => $total
         ]);
     }
 

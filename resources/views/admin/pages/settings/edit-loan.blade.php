@@ -42,22 +42,37 @@
                                 <input name="content" type="text" class="form-control" id="content" value="{{ $loan->content }}" placeholder="Enter content" autocomplete="none">
                             </div>
 
-                            <div class="form-group">
-                                <label for="loan">Gói vay(tối đa)</label>
-                                <input name="loan" type="text" class="form-control" id="loan" value="{{ $loan->loan }}" placeholder="Enter loan" autocomplete="none">
-                            </div>
-
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="rate">Lãi</label>
-                                        <input name="rate" type="number" step="0.01" class="form-control" id="rate" value="{{ $loan->rate }}" placeholder="Enter rate" autocomplete="none">
+                                        <label for="amount">Gói vay (triệu)</label>
+                                        <input name="amount" type="number" class="form-control" id="amount" value="{{ $loan->amount }}" placeholder="Enter amount" autocomplete="none">
                                     </div>
                                 </div>
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="period">Hàng</label>
-                                        <input name="period" type="text" class="form-control" id="period" value="{{ $loan->period }}" placeholder="Enter period" autocomplete="none">
+                                        <label for="duration">Thời hạn (tháng)</label>
+                                        <input name="duration" type="number" class="form-control" id="duration" value="{{ $loan->duration }}" placeholder="Enter duration" autocomplete="none">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="rate">Lãi suất (%)</label>
+                                        <input name="rate" type="number" class="form-control" id="rate" value="{{ $loan->rate }}" placeholder="Enter rate" autocomplete="none">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="minIncome">Mức thu nhập tối thiểu để vay (triệu)</label>
+                                        <input name="minIncome" type="number" class="form-control" id="minIncome" value="{{ $loan->minIncome }}" placeholder="Enter min income" autocomplete="none">
                                     </div>
                                 </div>
                             </div>

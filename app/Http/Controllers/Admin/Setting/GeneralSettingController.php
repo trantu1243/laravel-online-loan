@@ -97,6 +97,8 @@ class GeneralSettingController extends Controller
                 'dieu_khoan_xu_ly_du_lieu_ca_nhan' => 'required|string',
                 'dieu_khoan_giao_dich' => 'required|string',
                 'mb_about_image' => 'required|string',
+                'hotline' => 'required|string',
+                'link_mes' => 'required|string',
             ]);
 
             $setting = Setting::find(1);

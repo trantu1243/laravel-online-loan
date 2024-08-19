@@ -28,67 +28,91 @@
 
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label for="">Tên</label>
                                                     <input type="text" class="form-control " name="name" placeholder="Enter ..." value="{{ $customer->name }}" required>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label for="">SĐT</label>
                                                     <input type="text" class="form-control " name="phone" placeholder="Enter ..." value="{{ $customer->phone }}" required>
                                                 </div>
                                             </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">CCCD</label>
+                                                    <input type="text" class="form-control " name="idCard" placeholder="Enter ..." value="{{ $customer->idCard }}" required>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="">CCCD</label>
-                                            <input type="text" class="form-control " name="idCard" placeholder="Enter ..." value="{{ $customer->idCard }}" required>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">Nhóm khách hàng</label>
+                                                    <select class="form-control" name="salaryType" required>
+                                                        @foreach ($subjects as $item)
+                                                            <option value="{{ $item->subject }}" {{ $customer->salaryType == $item->subject ? "selected" : "" }}>{{ $item->subject }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">Thời gian gọi</label>
+                                                    <select name="timeCall"  class="form-control" required>
+                                                        @php
+                                                            $optionList = [
+                                                                "Liên hệ ngay trong vòng 1 giờ",
+                                                                "Thứ 2-Thứ 6:8:00-10:00",
+                                                                "Thứ 2-Thứ 6:10:00-12:00",
+                                                                "Thứ 2-Thứ 6:12:00-14:00",
+                                                                "Thứ 2-Thứ 6:14:00-16:00",
+                                                                "Thứ 2-Thứ 6:16:00-18:00",
+                                                                "Thứ 2-Thứ 6:17:30-19:00",
+                                                                "Thứ 2-Thứ 6:Sau 18h",
+                                                                "Thứ 7:8:00-10:00",
+                                                                "Thứ 7:10:00-12:00",
+                                                                "Thứ 7:12:00-14:00",
+                                                                "Thứ 7:14:00-16:00",
+                                                                "Thứ 7:16:00-17:30"
+                                                            ]
+                                                        @endphp
+                                                        @foreach ($optionList as $item)
+                                                            <option value="{{ $item }}" {{ $customer->timeCall == $item ? "selected" : "" }}>{{ $item }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">Link Facebook</label>
+                                                    <input type="text" class="form-control " name="linkfb" placeholder="Enter ..." value="{{ $customer->linkfb }}" required>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="">Nhóm khách hàng</label>
-                                            <select class="form-control" name="salaryType" required>
-                                                @php
-                                                    $salaryList = [
-                                                        "Cán bộ công chức viên chức Nhà nước",
-                                                        "Nhân viên văn phòng (nhận lương chuyển khoản)",
-                                                        "Công nhân (nhận lương chuyển khoản)",
-                                                        "Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy",
-                                                        "Khác (lương tiền mặt, kinh doanh tự do,…)",
-                                                    ]
-                                                @endphp
-                                                @foreach ($salaryList as $item)
-                                                    <option value="{{ $item }}" {{ $customer->salaryType == $item ? "selected" : "" }}>{{ $item }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="">Thời gian gọi</label>
-                                            <select name="timeCall"  class="form-control" required>
-                                                @php
-                                                    $optionList = [
-                                                        "Liên hệ ngay trong vòng 1 giờ",
-                                                        "Thứ 2-Thứ 6:8:00-10:00",
-                                                        "Thứ 2-Thứ 6:10:00-12:00",
-                                                        "Thứ 2-Thứ 6:12:00-14:00",
-                                                        "Thứ 2-Thứ 6:14:00-16:00",
-                                                        "Thứ 2-Thứ 6:16:00-18:00",
-                                                        "Thứ 2-Thứ 6:17:30-19:00",
-                                                        "Thứ 2-Thứ 6:Sau 18h",
-                                                        "Thứ 7:8:00-10:00",
-                                                        "Thứ 7:10:00-12:00",
-                                                        "Thứ 7:12:00-14:00",
-                                                        "Thứ 7:14:00-16:00",
-                                                        "Thứ 7:16:00-17:30"
-                                                    ]
-                                                @endphp
-                                                @foreach ($optionList as $item)
-                                                    <option value="{{ $item }}" {{ $customer->timeCall == $item ? "selected" : "" }}>{{ $item }}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">Số tiền mong muốn vay</label>
+                                                    <input type="number" class="form-control " name="desiredAmount" placeholder="Enter ..." value="{{ $customer->desiredAmount }}" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">Thời hạn trả mong muốn</label>
+                                                    <input type="number" class="form-control " name="desiredDuration" placeholder="Enter ..." value="{{ $customer->desiredDuration }}"" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <label for="">Mức thu nhập</label>
+                                                    <input type="number" class="form-control " name="income" placeholder="Enter ..." value="{{ $customer->income }}" required>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="form-group">
@@ -106,13 +130,55 @@
 
                                         <div class="form-group">
                                             <label for="">Sale nhận xử lý</label>
-                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{  $customer->sale ? $customer->Sale->name : '-' }}" disabled>
+                                            <select class="form-control" name="sale">
+                                                <option value="">Chưa có</option>
+                                                @foreach ($sales as $item)
+                                                    <option value="{{ $item->id }}" {{ $customer->sale == $item->id ? "selected" : ""}}>{{$item->name}}</option>
+                                                @endforeach
+
+                                            </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="">Thẩm định viên nhận xử lý</label>
-                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{  $customer->censor ? $customer->Censor->name : '-' }}" disabled>
+                                            <select class="form-control" name="sale">
+                                                <option value="">Chưa có</option>
+                                                @foreach ($censors as $item)
+                                                    <option value="{{ $item->id }}" {{ $customer->censor == $item->id ? "selected" : ""}}>{{$item->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
+
+                                        <div class="row">
+
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label for="">Gói vay của khách hàng (id | gói | thời hạn | lãi suất)</label>
+                                                        <select class="form-control" name="loan_id">
+                                                            <option value="">Chưa chọn gói vay</option>
+                                                            @foreach ($loans as $item)
+                                                                <option value="{{ $item->id }}" {{ $customer->loan_id == $item->id ? "selected" : ""}}>{{ $item->id . ' | ' . $item->amount . ' triệu | ' . $item->duration . ' tháng | ' . $item->rate . '%/năm'}}</option>
+                                                            @endforeach
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="">Thời gian chuyển tiền cho khách</label>
+                                                    <input type="text" class="form-control " placeholder="Enter ..." name="transfer_time" value="{{  $customer->transfer_time ? $customer->transfer_time : '' }}">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        @if ($customer->contract_id)
+                                            <div class="form-group">
+                                                <a href="{{ Route('sale-contract', ['id' => $customer->id]) }}" target="_blank" class="btn btn-warning" id="confirmButton">Xem hợp đồng điện tử</a>
+                                            </div>
+                                        @endif
 
                                         <div class="form-group">
                                            <button type="submit" class="btn btn-primary">Save</button>
@@ -164,6 +230,5 @@
 
         </div>
     </div><!--/. container-fluid -->
-
 
 @endsection

@@ -17,7 +17,23 @@ class CustomerInfo extends Model
         'timeCall',
         'status',
         'sale',
-        'censor'
+        'censor',
+        'linkfb',
+        'desiredAmount',
+        'desiredDuration',
+        'income',
+        'loan_id',
+        'call_time',
+        'transfer_time',
+        'contract_id',
+        'fill_time',
+        'debt',
+        'paid',
+        'num_reminder',
+        'month_num',
+        'day',
+        'month_debt',
+        'sum'
     ];
 
     public function Sale()
@@ -29,4 +45,12 @@ class CustomerInfo extends Model
     {
         return $this->belongsTo(User::class, 'censor');
     }
+
+    public function loan()
+    {
+        return $this->belongsTo(Sale::class, 'loan_id');
+    }
+
+    protected $table = 'customer_infos';
+
 }

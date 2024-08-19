@@ -13,7 +13,7 @@ class SaleController extends Controller
         $customers = CustomerInfo::with(['Sale', 'Censor'])->where('status', 'PENDING')->orderBy('created_at', 'desc')->paginate(15);
 
         $id = Auth::id();
-        $saleCustomers = CustomerInfo::where('sale', $id)->where('status', '!=', 'DONE')->orderBy('updated_at', 'desc')->paginate(10);
+        $saleCustomers = CustomerInfo::where('sale', $id)->orderBy('updated_at', 'desc')->paginate(10);
         return view('admin.pages.sale.index', ['customers' => $customers, 'saleCustomers' => $saleCustomers]);
     }
 
