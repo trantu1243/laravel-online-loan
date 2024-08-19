@@ -38,11 +38,10 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary float-right">Filter</button>
+                                        <button type="submit" class="btn btn-primary float-left">Filter</button>
                                     </div>
                                 </div>
                             </div>
-
 
                         </form>
 

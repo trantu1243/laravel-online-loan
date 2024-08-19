@@ -43,6 +43,7 @@ class CensorDetailController extends Controller
         $customer->day = now()->addDay()->day;
         $customer->month_debt = 0;
         $customer->sum = 0;
+        $customer->debt = 0;
         $customer->save();
 
         toastr()->success(' Đã xác nhận chuyển tiền');

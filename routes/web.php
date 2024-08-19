@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Contract\ContractTemplateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EditCustomerInfoController;
 use App\Http\Controllers\Admin\ExportController;
+use App\Http\Controllers\Admin\Pdf\PdfController;
 use App\Http\Controllers\Admin\Sale\SaleController;
 use App\Http\Controllers\Admin\Sale\SaleDetailController;
 use App\Http\Controllers\Admin\Setting\CodeController;
@@ -92,6 +93,8 @@ Route::middleware([VerifyMiddleware::class])->group(function (){
         Route::get('/admin/contract-template', [ContractTemplateController::class, 'show'])->name('contract-template');
         Route::post('/admin/contract-template', [ContractTemplateController::class, 'save'])->name('save-contract-template');
 
+        Route::post('/admin/dieukhoan', [ContractTemplateController::class, 'dieukhoan'])->name('save-dieukhoan');
+
         //export
         Route::get('/admin/export/customer-info', [ExportController::class, 'export'])->name('export-customer');
     });
@@ -138,4 +141,5 @@ Route::middleware([ApiMiddleware::class])->group(function (){
 });
 
 // pdf
-
+Route::get('/dieu-khoan/dieu-khoan-xu-ly-du-lieu-ca-nhan', [PdfController::class, 'dk_xu_ly_du_lieu_ca_nhan']);
+Route::get('/dieu-khoan/dieu-khoan-giao-dich', [PdfController::class, 'dk_giao_dich']);

@@ -83,6 +83,66 @@
 
       <!-- ./row -->
     </section>
+
+    <section class="content">
+        <form action="{{ Route('save-dieukhoan') }}" method="POST">
+        @csrf
+            <!-- ./row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-outline card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Điều khoản xử lý dữ liệu cá nhân
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <textarea id="dk_xu_ly_du_lieu_ca_nhan" class="p-3" name="dk_xu_ly_du_lieu_ca_nhan">{{ $dieukhoan->dk_xu_ly_du_lieu_ca_nhan }}</textarea>
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-->
+            </div>
+
+             <!-- ./row -->
+             <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-outline card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Điều khoản giao dịch
+                            </h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body p-0">
+                            <textarea id="dk_giao_dich" class="p-3" name="dk_giao_dich">{{ $dieukhoan->dk_giao_dich }}</textarea>
+                        </div>
+                        <div class="card-footer">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-->
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-->
+            </div>
+        </form>
+
+      <!-- ./row -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -118,6 +178,18 @@
 
     // CodeMirror
     CodeMirror.fromTextArea(document.getElementById("template"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("dk_xu_ly_du_lieu_ca_nhan"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("dk_giao_dich"), {
       mode: "htmlmixed",
       theme: "monokai"
     });
