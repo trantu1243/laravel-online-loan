@@ -2620,7 +2620,7 @@
     }
 
     #IMAGE142>.ladi-image>.ladi-image-background {
-      background-image: url("/ladi/8-20240312065532-vgw97.png");
+      background-image: url("{{ $setting->popup_button }}");
     }
 
     #GROUP162,
