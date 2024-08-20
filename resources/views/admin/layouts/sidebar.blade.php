@@ -46,7 +46,7 @@
             </li>
 
             @if(auth()->user()->role === 'ADMIN')
-                <li class="nav-item {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'customer-setting' || Route::currentRouteName() == 'show-code' ||Route::currentRouteName() == 'advantage-setting' || Route::currentRouteName() == 'form-setting' || Route::currentRouteName() == 'estimate-setting' || Route::currentRouteName() == 'process-setting' || Route::currentRouteName() == 'question-setting' ? 'menu-open' : '' }}">
+                <li class="nav-item {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'customer-setting' || Route::currentRouteName() == 'show-code' ||Route::currentRouteName() == 'advantage-setting' || Route::currentRouteName() == 'form-setting' || Route::currentRouteName() == 'estimate-setting' || Route::currentRouteName() == 'process-setting' || Route::currentRouteName() == 'question-setting' || Route::currentRouteName() == 'footer-setting' ? 'menu-open' : '' }}">
                     <a href="" class="nav-link">
                         <i class="nav-icon fa fa-cog"></i>
                         <p>Giao diện và cài đặt
