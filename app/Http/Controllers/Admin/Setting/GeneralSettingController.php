@@ -23,6 +23,11 @@ class GeneralSettingController extends Controller
         $mb_logo_footer = Image::query()->where('type', 'mb_logo_footer')->select('file', 'filename', 'type')->get();
         $mb_about_image = Image::query()->where('type', 'mb_about_image')->select('file', 'filename', 'type')->get();
 
+        $footer_bg = Image::query()->where('type', 'footer_bg')->select('file', 'filename', 'type')->get();
+        $mb_footer_bg = Image::query()->where('type', 'mb_footer_bg')->select('file', 'filename', 'type')->get();
+        $popup_button = Image::query()->where('type', 'popup_button')->select('file', 'filename', 'type')->get();
+
+
         return view('admin.pages.settings.index', [
             'setting' => $setting,
             'logo' => $logo,
@@ -34,7 +39,10 @@ class GeneralSettingController extends Controller
             'about' => $about,
             'logo_footer' => $logo_footer,
             'mb_logo_footer' => $mb_logo_footer,
-            'mb_about_image' => $mb_about_image
+            'mb_about_image' => $mb_about_image,
+            'footer_bg' => $footer_bg,
+            'mb_footer_bg' => $mb_footer_bg,
+            'popup_button' => $popup_button
         ]);
     }
 
@@ -99,6 +107,12 @@ class GeneralSettingController extends Controller
                 'mb_about_image' => 'required|string',
                 'hotline' => 'required|string',
                 'link_mes' => 'required|string',
+                'footer_bg' => 'required|string',
+                'mb_footer_bg' => 'required|string',
+                'color' => 'required|string',
+                'bg_color' => 'required|string',
+                'line_color' => 'required|string',
+                'popup_button'  => 'required|string',
             ]);
 
             $setting = Setting::find(1);
@@ -120,6 +134,12 @@ class GeneralSettingController extends Controller
             $setting->dieu_khoan_giao_dich = $request->input('dieu_khoan_giao_dich');
             $setting->mb_logo_footer = $request->input('mb_logo_footer');
             $setting->mb_about_image = $request->input('mb_about_image');
+            $setting->footer_bg = $request->input('footer_bg');
+            $setting->mb_footer_bg = $request->input('mb_footer_bg');
+            $setting->color = $request->input('color');
+            $setting->bg_color = $request->input('bg_color');
+            $setting->line_color = $request->input('line_color');
+            $setting->popup_button = $request->input('popup_button');
 
             $setting->save();
 

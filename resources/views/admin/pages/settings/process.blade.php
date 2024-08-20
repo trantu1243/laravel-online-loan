@@ -1,6 +1,6 @@
 @extends('admin.layouts.index')
 
-@section('title', 'Các gói vay')
+@section('title', 'Quy trình đăng kí vay')
 
 @section('content')
     <div class="container-fluid">
@@ -9,7 +9,7 @@
             <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                      <h3 class="card-title">Đánh giá từ khách hàng</h3>
+                      <h3 class="card-title">Quy trình đăng kí vay</h3>
 
                   </div>
                   <!-- /.card-header -->
@@ -17,21 +17,20 @@
                     <table class="table table-hover text-nowrap">
                       <thead>
                         <tr>
-                          <th>Tên</th>
-                          <th>Nghề nhiệp</th>
-                          <th style="width: 400px">Nội dung</th>
+                          <th>Title</th>
+
+                          <th style="width: 60%">Nội dung</th>
                           <th>Ảnh</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach ($customers as $item)
+                          @foreach ($process as $item)
                               <tr>
-                                    <td class="break-word">{{ $item->name }}</td>
-                                    <td>{{ $item->career }}</td>
-                                    <td style="width: 400px" class="break-word">{{ $item->content }}</td>
-                                    <td><img src="{{ $item->image }}" alt="" style="width: 80px" /></td>
+                                    <td class="break-word">{{ $item->title }}</td>
+                                    <td style="width: 60%" class="break-word">{{ $item->content }}</td>
+                                    <td><img src="{{ $item->image }}" alt="" style="width: 60px" /></td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-warning btn-sm" href="{{ Route('edit-customer', ['id' => $item->id ]) }}">
+                                        <a class="btn btn-warning btn-sm" href="{{ Route('edit-process', ['id' => $item->id ]) }}">
                                             <i class="fas fa-pencil-alt">
                                             </i>
                                             Sửa

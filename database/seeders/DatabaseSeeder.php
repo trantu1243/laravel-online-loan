@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Advantage;
 use App\Models\Code;
 use App\Models\Customer;
+use App\Models\FooterInfo;
 use App\Models\Image;
+use App\Models\Process;
+use App\Models\Question;
 use App\Models\Sale;
 use App\Models\Setting;
 use App\Models\Subject;
@@ -20,22 +24,177 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-
-        Subject::create([
-            'subject' => 'Cán bộ công chức viên chức Nhà nước'
+        FooterInfo::create([
+            'phone' => '0911 083 128',
+            'hotline' => '1900 6866 #1',
+            'address' => 'Tầng 12A Tháp Tây, LOTTE Center, 54 Liễu Giai, Phường Cống Vị, Quận Ba Đình, Thành phố Hà Nội, Việt Nam.',
+            'website' => 'www.lottefinance.vn',
+            'note' => '© 2024 Bản quyền thuộc về LOTTE FINANCE',
+            'content' => 'Đơn vị chủ quản: Công ty Tài chính TNHH MTV LOTTE Việt Nam (LOTTE Finance). Địa chỉ: Tầng 12A, Tòa Tây, LOTTE Center Hanoi, 54 Liễu Giai, Ba Đình, Hà Nội, Hotline: 1900 6866.<br> Mã số doanh nghiệp: 0103172804 do Sở Kế hoạch và Đầu tư Thành phố Hà Nội cấp ngày 31/12/2008'
         ]);
 
-        Subject::create([
-            'subject' => 'Nhân viên văn phòng (nhận lương chuyển khoản)'
+        Advantage::create([
+            'content' => 'Duyệt vay đến<br><span style="color: rgb(231, 37, 43);">300 triệu đồng</span>',
+            'image'=> '/ladi/path2-20240216094840-kytcs.png',
         ]);
 
-        Subject::create([
-            'subject' => 'Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy'
+        Image::insert([
+            'filename' => 'path2-20240216094840-kytcs.png',
+            'type' => 'advantage',
+            'file' => "/ladi/path2-20240216094840-kytcs.png",
         ]);
 
-        Subject::create([
-            'subject' => 'Khác (lương tiền mặt, kinh doanh tự do,…)'
+        Advantage::create([
+            'content' => 'Thủ tục <span style="color: rgb(231, 37, 43);">minh bạch</span>,<br>giải ngân <span style="color: rgb(231, 37, 43);">nhanh chóng</span><br>',
+            'image'=> '/ladi/thu-tuc-minh-bach-20240216094841-ubwmv.png',
         ]);
+
+        Image::insert([
+            'filename' => 'thu-tuc-minh-bach-20240216094841-ubwmv.png',
+            'type' => 'advantage',
+            'file' => "/ladi/thu-tuc-minh-bach-20240216094841-ubwmv.png",
+        ]);
+
+        Advantage::create([
+            'content' => 'Thời hạn cho vay đến<br><span style="color: rgb(231, 37, 43);">60 tháng</span>',
+            'image'=> '/ladi/thoi-han-cho-vay-1-20240216094841-lpnyq.png',
+        ]);
+
+        Image::insert([
+            'filename' => 'thoi-han-cho-vay-1-20240216094841-lpnyq.png',
+            'type' => 'advantage',
+            'file' => "/ladi/thoi-han-cho-vay-1-20240216094841-lpnyq.png",
+        ]);
+
+        Advantage::create([
+            'content' => 'Lãi suất cạnh tranh *<br><span style="color: rgb(231, 37, 43);">Chỉ từ 10 %/ năm</span>',
+            'image'=> '/ladi/lai-suat-canh-tranh-20240216094840-zwheh.png',
+        ]);
+
+        Image::insert([
+            'filename' => 'lai-suat-canh-tranh-20240216094840-zwheh.png',
+            'type' => 'advantage',
+            'file' => "/ladi/lai-suat-canh-tranh-20240216094840-zwheh.png",
+        ]);
+
+
+
+
+        Process::create([
+            'title' => '1. Đăng ký vay',
+            'content' => 'Khách hàng liên hệ Hotline: 1900-6866 hoặc để lại thông tin trên website, app để được tư vấn miễn phí',
+            'image'=> '/ladi/dang-ky-vay-20240216094817-3rgak.png',
+        ]);
+
+        Image::insert([
+            'filename' => 'dang-ky-vay-20240216094817-3rgak.png',
+            'type' => 'process',
+            'file' => "/ladi/dang-ky-vay-20240216094817-3rgak.png",
+        ]);
+
+        Process::create([
+            'title' => '2. Nộp hồ sơ vay',
+            'content' => 'Sau khi được nhân viên của LOTTE Finance tư vấn về sản phẩm, Khách hàng chọn khoản vay phù hợp và nộp hồ sơ trực tiếp hoặc online',
+            'image'=> '/ladi/g3717-20240216094828-73z9e.png',
+        ]);
+
+        Image::insert([
+            'filename' => 'g3717-20240216094828-73z9e.png',
+            'type' => 'process',
+            'file' => "/ladi/g3717-20240216094828-73z9e.png",
+        ]);
+
+        Process::create([
+            'title' => '3. Thẩm định & phê duyệt hồ sơ',
+            'content' => 'Dựa trên hồ sơ Khách hàng cung cấp, LOTTE Finance sẽ thẩm định và gửi đến Khách hàng kết quả phê duyệt',
+            'image'=> '/ladi/group-39888-20240216094840-56gqj.png',
+        ]);
+
+        Image::insert([
+            'filename' => 'group-39888-20240216094840-56gqj.png',
+            'type' => 'process',
+            'file' => "/ladi/group-39888-20240216094840-56gqj.png",
+        ]);
+
+        Process::create([
+            'title' => '4. Nhận giải ngân',
+            'content' => 'Sau khi ký hợp đồng vay, Khách hàng nhận tiền trực tiếp qua tài khoản ngân hàng hoặc tại điểm giao dịch từ đối tác của LOTTE Finance như VNPost, Vietinbank,….',
+            'image'=> '/ladi/giai-ngan-20240216094828-wvtj0.png',
+        ]);
+
+        Image::insert([
+            'filename' => 'giai-ngan-20240216094828-wvtj0.png',
+            'type' => 'process',
+            'file' => "/ladi/giai-ngan-20240216094828-wvtj0.png",
+        ]);
+
+        Question::create([
+            'question' => "Ngoài lãi phải trả đều đặn, khi vay tại LOTTE Finance tôi còn phải trả những loại phí nào?",
+            'answer' => "LOTTE Finance (LFVN) hỗ trợ làm thủ tục, hồ sơ vay hoàn toàn miễn phí cho khách hàng (KH). Dù hồ sơ được duyệt vay hay không, Quý khách không phải đóng bất kỳ chi phí nào trước khi ký hợp đồng vay."
+        ]);
+
+        Question::create([
+            'question' => "Khoản trả góp của tôi sẽ được tính như thế nào?",
+            'answer' => "Khoản thanh toán đều hàng tháng, trong đó lãi suất được tính trên cơ sở dư nợ giảm dần và số tiền gốc phải trả được điều chỉnh để đảm bảo khoản thanh toán đều vào mỗi tháng (ngoại trừ kỳ đầu và kỳ cuối, số tiền phải trả hàng tháng có thể khác)."
+        ]);
+
+        Question::create([
+            'question' => "Lịch sử tín dụng của tôi sẽ bị ảnh hưởng như thế nào khi Khoản Vay bị quá hạn thanh toán?",
+            'answer' => "Tùy theo số ngày quá hạn thanh toán khoản vay mà LFVN sẽ phân loại các nhóm nợ tín dụng khác nhau theo quy định nợ của Ngân hàng Nhà nước và báo cáo về trung tâm CIC. Đồng thời LFVN sẽ áp dụng lãi chậm trả theo quy định của hợp đồng tín dụng."
+        ]);
+
+        Question::create([
+            'question' => "Số tiền tối đa tôi có thể vay là bao nhiêu?",
+            'answer' => "KH được xem xét theo từng sản phẩm KH đăng kí. LFVN đang hỗ trợ vay lên đến 300 triệu. Để biết thêm chi tiết, KH vui lòng liên hệ tổng đài 0911 083 128"
+        ]);
+
+        Question::create([
+            'question' => "Thời hạn vay tối đa có thể áp dụng cho tôi là bao lâu?",
+            'answer' => "Thời hạn vay linh hoạt theo từng sản phẩm và nhu cầu của KH, tối thiểu 06 tháng - tối đa 48 tháng. Tuy nhiên, thời hạn vay còn phụ thuộc vào độ tuổi lao động của KH, trong đó độ tuổi tối đa kết thúc hợp đồng vay là 60-65 tuổi."
+        ]);
+
+        Question::create([
+            'question' => "Thời gian giải ngân khoản vay mất bao lâu?",
+            'answer' => "Tùy vào gói vay KH lựa chọn mà có thời gian thẩm định và duyệt hồ sơ vay khác nhau. Kể từ thời điểm KH cung cấp đủ hồ sơ, khoản vay sẽ được giải ngân chỉ từ 4 giờ."
+        ]);
+
+        Question::create([
+            'question' => "Trường hợp tôi muốn thanh toán trước hạn thì phải làm thế nào?",
+            'answer' => "KH lưu ý chỉ được tất toán
+                  trước hạn toàn bộ khoản vay không được tất toán trước hạn một phần <br>
+                  KH vui lòng liên hệ số hotline 0911 083 128 bằng số điện thoại Bên vay đã đăng ký để có
+                thông
+                tin về số tiền cũng như cách thức thanh toán. Khoản vay cũng có thể được hệ thống tự động tất toán trước
+                hạn khi KH nộp đủ số tiền cần thiết cho LOTTE Finance."
+        ]);
+
+        Question::create([
+            'question' => "Bảo hiểm khoản vay là gì? Có bắt buộc mua bảo hiểm khi ký hợp đồng vay hay không?",
+            'answer' => "Bảo hiểm khoản vay là số
+                  tiền mà khách hàng chi trả để mua bảo hiểm cho hợp đồng vay của mình. Khi khách hàng mua bảo hiểm,
+                  trong trường hợp khách hàng không may gặp phải những rủi ro không lường trước được sau khi vay tín
+                  chấp, khiến khách hàng mất khả năng thanh toán, thì công ty bảo hiểm sẽ trả nợ thay khách hàng. Bảo
+                  hiểm khoản vay không chỉ bảo vệ khách hàng và gia đình trước các rủi ro, mà còn là một tiêu chí giúp
+                  khoản vay của khách hàng dễ dàng được duyệt hơn. Bảo hiểm khoản vay là chi phí không bắt buộc khi ký
+                  hợp đồng vay, khách hàng có quyền lựa chọn việc mua hoặc không mua bảo hiểm."
+        ]);
+
+
+        // Subject::create([
+        //     'subject' => 'Cán bộ công chức viên chức Nhà nước'
+        // ]);
+
+        // Subject::create([
+        //     'subject' => 'Nhân viên văn phòng (nhận lương chuyển khoản)'
+        // ]);
+
+        // Subject::create([
+        //     'subject' => 'Sở hữu Hợp đồng Bảo hiểm Nhân thọ hoặc Đăng ký Xe máy'
+        // ]);
+
+        // Subject::create([
+        //     'subject' => 'Khác (lương tiền mặt, kinh doanh tự do,…)'
+        // ]);
 
         // User::factory(10)->create();
 

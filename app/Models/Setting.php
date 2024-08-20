@@ -27,6 +27,12 @@ class Setting extends Model
         'dieu_khoan_giao_dich',
         'mb_about_image',
         'hotline',
-        'link_mes'
+        'link_mes',
+        'footer_bg',
+        'mb_footer_bg',
+        'color',
+        'bg_color',
+        'line_color',
+        'popup_button'
     ];
 }

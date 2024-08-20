@@ -1,42 +1,39 @@
 @extends('admin.layouts.index')
 
-@section('title', 'Các gói vay')
+@section('title', 'Câu hỏi')
 
 @section('content')
     <div class="container-fluid">
+
         <div class="row">
 
             <div class="col-12">
                 <div class="card">
-                  <div class="card-header">
-                      <h3 class="card-title">Đánh giá từ khách hàng</h3>
+                    <div class="card-header">
+                        <h3 class="card-title">Câu hỏi thường gặp</h3>
 
-                  </div>
-                  <!-- /.card-header -->
+                    </div>
                   <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                       <thead>
                         <tr>
-                          <th>Tên</th>
-                          <th>Nghề nhiệp</th>
-                          <th style="width: 400px">Nội dung</th>
-                          <th>Ảnh</th>
+
+                            <th>Câu hỏi</th>
+                            <th>Câu trả lời</th>
                         </tr>
                       </thead>
                       <tbody>
-                          @foreach ($customers as $item)
+                          @foreach ($questions as $item)
                               <tr>
-                                    <td class="break-word">{{ $item->name }}</td>
-                                    <td>{{ $item->career }}</td>
-                                    <td style="width: 400px" class="break-word">{{ $item->content }}</td>
-                                    <td><img src="{{ $item->image }}" alt="" style="width: 80px" /></td>
+
+                                    <td class="break-word" style="width: 30%">{{ $item->question }}</td>
+                                    <td class="break-word" style="width: 70%">{{ $item->answer }}</td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-warning btn-sm" href="{{ Route('edit-customer', ['id' => $item->id ]) }}">
+
+                                        <a href="{{ Route('edit-question-setting', ['id' => $item->id ])}}" class="btn btn-warning btn-sm">
                                             <i class="fas fa-pencil-alt">
                                             </i>
-                                            Sửa
                                         </a>
-
                                     </td>
                               </tr>
                           @endforeach
@@ -52,6 +49,5 @@
 
         </div>
     </div><!--/. container-fluid -->
-
 
 @endsection

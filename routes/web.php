@@ -11,12 +11,17 @@ use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\Admin\Pdf\PdfController;
 use App\Http\Controllers\Admin\Sale\SaleController;
 use App\Http\Controllers\Admin\Sale\SaleDetailController;
+use App\Http\Controllers\Admin\Setting\AdvantageController;
 use App\Http\Controllers\Admin\Setting\CodeController;
 use App\Http\Controllers\Admin\Setting\CustomerController;
 use App\Http\Controllers\Admin\Setting\EditLoanController;
+use App\Http\Controllers\Admin\Setting\EstimateController;
+use App\Http\Controllers\Admin\Setting\FooterInfoController;
 use App\Http\Controllers\Admin\Setting\FormController;
 use App\Http\Controllers\Admin\Setting\GeneralSettingController;
 use App\Http\Controllers\Admin\Setting\LoanSettingController;
+use App\Http\Controllers\Admin\Setting\ProcessController;
+use App\Http\Controllers\Admin\Setting\QuestionController;
 use App\Http\Controllers\Admin\User\AddUserController;
 use App\Http\Controllers\Admin\User\ChangePasswordController;
 use App\Http\Controllers\Admin\User\UserController;
@@ -81,13 +86,31 @@ Route::middleware([VerifyMiddleware::class])->group(function (){
         Route::post('/admin/setting/edit-customer/{id}', [CustomerController::class, 'edit'])->name('post.edit-customer');
 
         Route::get('/admin/setting/code', [CodeController::class, 'show'])->name('show-code');
-        Route::get('/admin/setting/others', [CodeController::class, 'showOthers'])->name('show-others');
         Route::post('/admin/setting/code', [CodeController::class, 'change'])->name('save-code');
-        Route::post('/admin/setting/others', [CodeController::class, 'changeOthers'])->name('save-others');
 
         Route::get('/admin/setting/form', [FormController::class, 'show'])->name('form-setting');
         Route::post('/admin/setting/form', [FormController::class, 'add'])->name('add-form');
         Route::delete('/admin/setting/delete-form/{id}', [FormController::class, 'destroy'])->name('delete-form');
+
+
+        Route::get('/admin/setting/question', [QuestionController::class, 'show'])->name('question-setting');
+        Route::get('/admin/setting/question/{id}', [QuestionController::class, 'showEdit'])->name('edit-question-setting');
+        Route::post('/admin/setting/question/{id}', [QuestionController::class, 'edit'])->name('save-question-setting');
+
+
+        Route::get('/admin/setting/estimate', [EstimateController::class, 'show'])->name('estimate-setting');
+        Route::post('/admin/setting/estimate', [EstimateController::class, 'save'])->name('save-estimate-setting');
+
+        Route::get('/admin/setting/process', [ProcessController::class, 'show'])->name('process-setting');
+        Route::get('/admin/setting/edit-process/{id}', [ProcessController::class, 'showEdit'])->name('edit-process');
+        Route::post('/admin/setting/edit-process/{id}', [ProcessController::class, 'edit'])->name('post.edit-process');
+
+        Route::get('/admin/setting/advantage', [AdvantageController::class, 'show'])->name('advantage-setting');
+        Route::get('/admin/setting/edit-advantage/{id}', [AdvantageController::class, 'showEdit'])->name('edit-advantage');
+        Route::post('/admin/setting/edit-advantage/{id}', [AdvantageController::class, 'edit'])->name('post.edit-advantage');
+
+        Route::get('/admin/setting/footer', [FooterInfoController::class, 'show'])->name('footer-setting');
+        Route::post('/admin/setting/footer', [FooterInfoController::class, 'save'])->name('save-footer-setting');
 
         // contract
         Route::get('/admin/contract-template', [ContractTemplateController::class, 'show'])->name('contract-template');

@@ -46,10 +46,7 @@
   <link rel="dns-prefetch">
   <link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="preconnect" href="https://vay.lottefinance.vn" crossorigin>
-  <link rel="preconnect" href="https://vay.lottefinance.vn" crossorigin>
-  <link rel="preconnect" href="https://vay.lottefinance.vn" crossorigin>
-  <link rel="preconnect" href="https://vay.lottefinance.vn" crossorigin>
+
   <link rel="preload" href="/ladi/ladipagev3.min.js" as="script">
   <style id="style_ladi" type="text/css">
     a,
@@ -1731,7 +1728,7 @@
     #BUTTON28>.ladi-button>.ladi-button-background,
     #BUTTON46>.ladi-button>.ladi-button-background,
     #BUTTON29>.ladi-button>.ladi-button-background {
-      background-color: rgb(231, 37, 43);
+      background-color: {{ $setting->color }};
     }
 
     #BUTTON10>.ladi-button,
@@ -1869,7 +1866,7 @@
       border-width: 4px 0px 0px;
       border-radius: 10px;
       border-style: solid;
-      border-color: rgb(219, 3, 110);
+      border-color: {{ $setting->color }};
     }
 
     #BOX31>.ladi-box,
@@ -1909,7 +1906,7 @@
       font-size: 26px;
       font-weight: bold;
       line-height: 1.6;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
       text-transform: uppercase;
       text-align: center;
     }
@@ -2162,8 +2159,7 @@
     #BUTTON27>.ladi-button>.ladi-button-background,
     #BUTTON40>.ladi-button>.ladi-button-background,
     #BUTTON42>.ladi-button>.ladi-button-background {
-      background-image: radial-gradient(circle, rgb(204, 0, 46), rgb(236, 24, 72));
-      background-color: initial;
+      background-color: {{ $setting->color }};
       background-size: initial;
       background-origin: initial;
       background-position: initial;
@@ -2335,7 +2331,7 @@
       font-size: 14px;
       font-style: italic;
       line-height: 1.6;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
     }
 
     #PARAGRAPH77 {
@@ -2348,7 +2344,7 @@
     #PARAGRAPH263>.ladi-paragraph {
       font-size: 14px;
       line-height: 1.6;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
       text-decoration-line: underline;
     }
 
@@ -2456,9 +2452,9 @@
     #LINE2>.ladi-line>.ladi-line-container,
     #LINE5>.ladi-line>.ladi-line-container,
     #LINE6>.ladi-line>.ladi-line-container {
-      border-top: 4px solid rgb(231, 37, 43);
-      border-right: 4px solid rgb(231, 37, 43);
-      border-bottom: 4px solid rgb(231, 37, 43);
+      border-top: 4px solid {{ $setting->color }};
+      border-right: 4px solid {{ $setting->color }};
+      border-bottom: 4px solid {{ $setting->color }};
       border-left: 0px !important;
     }
 
@@ -2756,7 +2752,7 @@
       font-size: 24px;
       font-weight: bold;
       line-height: 1.3;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
       text-align: left;
     }
 
@@ -2897,7 +2893,7 @@
       font-size: 20px;
       font-weight: bold;
       line-height: 1.4;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
       text-align: left;
     }
 
@@ -3163,9 +3159,9 @@
       height: 676px;
     }
 
-    #IMAGE85>.ladi-image>.ladi-image-background {
+    /* #IMAGE85>.ladi-image>.ladi-image-background {
       background-image: url("/ladi/4-20240312052611-podmc.png");
-    }
+    } */
 
     #SECTION5>.ladi-section-background,
     #SECTION8>.ladi-section-background {
@@ -3177,21 +3173,21 @@
       background-attachment: scroll;
     }
 
-    #IMAGE71>.ladi-image>.ladi-image-background {
+    /* #IMAGE71>.ladi-image>.ladi-image-background {
       background-image: url("/ladi/-20240216094817-lcvmi.png");
-    }
+    } */
 
     #BOX28>.ladi-box {
       border-width: 4px 0px 0px;
       border-radius: 10px;
       border-style: solid;
-      border-color: rgb(231, 37, 43);
+      border-color: {{ $setting->color }};
     }
 
     #PARAGRAPH59>.ladi-paragraph {
       font-weight: bold;
       line-height: 1.6;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
     }
 
     #GROUP112,
@@ -3201,7 +3197,7 @@
 
     #BOX29>.ladi-box {
       border-radius: 0px;
-      background-color: rgb(255, 236, 238);
+      background-color: {{ $setting->bg_color }};
     }
 
     #PARAGRAPH66 {
@@ -3227,9 +3223,9 @@
     }
 
     #LINE3>.ladi-line>.ladi-line-container {
-      border-top: 5px solid rgb(231, 37, 43);
-      border-right: 5px solid rgb(231, 37, 43);
-      border-bottom: 5px solid rgb(231, 37, 43);
+      border-top: 5px solid {{ $setting->color }};
+      border-right: 5px solid {{ $setting->color }};
+      border-bottom: 5px solid {{ $setting->color }};
       border-left: 0px !important;
     }
 
@@ -3263,7 +3259,7 @@
       font-size: 18px;
       font-weight: bold;
       line-height: 1.4;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
       text-align: center;
     }
 
@@ -3373,7 +3369,7 @@
       font-size: 18px;
       font-weight: bold;
       line-height: 1.6;
-      color: rgb(231, 37, 43);
+      color: {{ $setting->color }};
       text-align: center;
     }
 
@@ -3450,9 +3446,9 @@
       height: 360.36px;
     }
 
-    #IMAGE86>.ladi-image>.ladi-image-background {
+    /* #IMAGE86>.ladi-image>.ladi-image-background {
       background-image: url("/ladi/3-20240312052611-jbexr.png");
-    }
+    } */
 
     #PARAGRAPH26>.ladi-paragraph,
     #PARAGRAPH179>.ladi-paragraph {
@@ -3471,9 +3467,9 @@
       background-image: url("{{ $setting->mb_about_image }}");
     }
 
-    #IMAGE87>.ladi-image>.ladi-image-background {
+    /* #IMAGE87>.ladi-image>.ladi-image-background {
       background-image: url("/ladi/2-20240312052611-gx-sy.png");
-    }
+    } */
 
     #BUTTON9>.ladi-button>.ladi-button-background {
       background-color: rgba(245, 65, 38, 0);
@@ -3482,7 +3478,7 @@
     #BUTTON9>.ladi-button {
       border-width: 1px;
       border-radius: 100px;
-      border-color: rgb(244, 64, 37);
+      border-color: {{ $setting->line_color }};
     }
 
     #BUTTON_TEXT9>.ladi-headline {
@@ -3659,7 +3655,7 @@
     #PARAGRAPH163 {
       width: 410px;
       top: 149.685px;
-      left: 168px;
+      left: 588px;
     }
 
     #PARAGRAPH163>.ladi-paragraph,
@@ -3680,7 +3676,7 @@
 
     #PARAGRAPH164 {
       top: 149.685px;
-      left: 0px;
+      left: 400px;
     }
 
     #LINE90,
@@ -3697,9 +3693,9 @@
     #LINE91>.ladi-line>.ladi-line-container,
     #LINE94>.ladi-line>.ladi-line-container,
     #LINE95>.ladi-line>.ladi-line-container {
-      border-top: 2px solid rgb(245, 140, 164);
-      border-right: 2px solid rgb(245, 140, 164);
-      border-bottom: 2px solid rgb(245, 140, 164);
+      border-top: 2px solid {{ $setting->line_color }};
+      border-right: 2px solid {{ $setting->line_color }};
+      border-bottom: 2px solid {{ $setting->line_color }};
       border-left: 0px !important;
     }
 
@@ -3782,8 +3778,8 @@
     }
 
     #LINE97>.ladi-line>.ladi-line-container {
-      border-right: 2px solid rgb(245, 140, 164);
-      border-bottom: 2px solid rgb(245, 140, 164);
+      border-right: 2px solid {{ $setting->line_color }};
+      border-bottom: 2px solid {{ $setting->line_color }};
     }
 
     #SECTION28>.ladi-section-background {
@@ -4899,9 +4895,9 @@
         left: -366px;
       }
 
-      #IMAGE107>.ladi-image>.ladi-image-background {
+      /* #IMAGE107>.ladi-image>.ladi-image-background {
         background-image: url("/ladi/1-20240312052611-vff-_.png");
-      }
+      } */
 
       #LINE73,
       #LINE71,
@@ -5120,7 +5116,7 @@
 
       #LINE97>.ladi-line>.ladi-line-container {
         border-top: 0px !important;
-        border-left: 2px solid rgb(245, 140, 164);
+        border-left: 2px solid {{ $setting->line_color }};
       }
 
       #LINE97>.ladi-line {
@@ -5756,10 +5752,10 @@
         top: -80px;
         left: 530px;
       }
-
+/*
       #IMAGE84>.ladi-image>.ladi-image-background {
         background-image: url("/ladi/mask-group-20240312042018-kco71.png");
-      }
+      } */
 
       #GROUP5,
       #GROUP12,
@@ -5996,9 +5992,9 @@
         left: -501px;
       }
 
-      #IMAGE91>.ladi-image>.ladi-image-background {
+      /* #IMAGE91>.ladi-image>.ladi-image-background {
         background-image: url("/ladi/6-20240312052950-hr9z3.png");
-      }
+      } */
 
       #IMAGE71,
       #IMAGE71>.ladi-image>.ladi-image-background {
@@ -6082,9 +6078,9 @@
         left: -434.133px;
       }
 
-      #IMAGE70>.ladi-image>.ladi-image-background {
+      /* #IMAGE70>.ladi-image>.ladi-image-background {
         background-image: url("/ladi/group-20240216094840-idju4.png");
-      }
+      } */
 
       #GROUP115,
       #BUTTON28,
@@ -6335,9 +6331,9 @@
         left: -840px;
       }
 
-      #IMAGE92>.ladi-image>.ladi-image-background {
+      /* #IMAGE92>.ladi-image>.ladi-image-background {
         background-image: url("/ladi/8-20240312053416-cjfyv.png");
-      }
+      } */
 
       #IMAGE53,
       #IMAGE53>.ladi-image>.ladi-image-background {
@@ -6639,7 +6635,7 @@
       #IMAGE141>.ladi-image>.ladi-image-background {
         top: 0px;
         left: 0px;
-        background-image: url("/ladi/vector-1-20240216094846-com8e.png");
+        background-image: url("{{ $setting->footer_bg }}");
       }
 
       #GROUP161 {
@@ -6653,7 +6649,7 @@
       }
 
       #LINE97>.ladi-line>.ladi-line-container {
-        border-top: 2px solid rgb(245, 140, 164);
+        border-top: 2px solid {{ $setting->line_color }};
         border-left: 0px !important;
       }
 
@@ -6667,7 +6663,7 @@
       }
 
       #SECTION28>.ladi-section-background {
-        background-image: url("/ladi/intersect-20240312055616-gnisr.png");
+        background-image: url("{{ $setting->mb_footer_bg }}");
       }
 
       #IMAGE136,
@@ -6677,7 +6673,7 @@
       }
 
       #IMAGE136 {
-        top: 85.2846px;
+        top: 135.2846px;
         left: 64.875px;
       }
 
@@ -6687,12 +6683,12 @@
 
       #PARAGRAPH168 {
         width: 322px;
-        top: 145.285px;
+        top: 245.285px;
         left: 114px;
       }
 
       #PARAGRAPH169 {
-        top: 145.285px;
+        top: 245.285px;
         left: 22.538px;
       }
 
@@ -7302,10 +7298,264 @@
               </a></div>
           </div>
 
-          {!! $code->question !!}
+          <div id='IMAGE107' class='ladi-element'>
+            <div class='ladi-image'>
+              <div class='ladi-image-background'></div>
+            </div>
+          </div>
+          <div id='LINE73' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='LINE71' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='LINE69' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='GROUP154' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH143' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[2]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH144' class='ladi-element'>
+                <div class='ladi-paragraph ladi-transition'><span style='font-style: italic;'>{!! $questions[2]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='GROUP151' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH137' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[1]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH138' class='ladi-element'>
+                <div class='ladi-paragraph'><span style='font-style: italic;'>{!! $questions[1]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='GROUP150' class='ladi-element'>
+            <div class='ladi-group'>
+              <div id='PARAGRAPH135' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[0]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH136' class='ladi-element'>
+                <div class='ladi-paragraph'><span style='font-style: italic;'>{!! $questions[0]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='LINE76' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='LINE75' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='LINE74' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='LINE72' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='GROUP156' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH147' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[6]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH148' class='ladi-element'>
+                <div class='ladi-paragraph ladi-transition'><span style='font-style: italic;'>{!! $questions[6]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='GROUP155' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH145' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[5]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH146' class='ladi-element'>
+                <div class='ladi-paragraph ladi-transition'><span style='font-style: italic;'>{!! $questions[5]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='GROUP153' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH141' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[4]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH142' class='ladi-element'>
+                <div class='ladi-paragraph'><span style='font-style: italic;'>{!! $questions[4]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='GROUP152' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH139' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[3]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH140' class='ladi-element'>
+                <div class='ladi-paragraph'><span style='font-style: italic;'>{!! $questions[3]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='GROUP157' class='ladi-element'>
+            <div class='ladi-group'>
+              <div data-action='true' id='PARAGRAPH149' class='ladi-element'>
+                <div class='ladi-paragraph'>{!! $questions[7]->question !!}</div>
+              </div>
+              <div id='PARAGRAPH150' class='ladi-element'>
+                <div class='ladi-paragraph ladi-transition'><span style='font-style: italic;'>{!! $questions[7]->answer !!}</span><br></div>
+              </div>
+            </div>
+          </div>
+          <div id='LINE96' class='ladi-element'>
+            <div class='ladi-line'>
+              <div class='ladi-line-container'></div>
+            </div>
+          </div>
+          <div id='SHAPE30' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE31' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE32' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE33' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE34' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE35' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE36' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
+          <div id='SHAPE37' class='ladi-element'>
+            <div class='ladi-shape'><svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'
+                preserveAspectRatio='none' viewBox='0 0 24 24' class='' fill='#000'>
+                <use xlink:href='#shape_EuvqYgIJeu'></use>
+              </svg></div>
+          </div>
         </div>
       </div>
-    {!! $code->about_footer !!}
+
+
+      <div id='SECTION27' class='ladi-section'>
+        <div class='ladi-section-background'></div>
+          <div class='ladi-container'>
+            <div id='IMAGE141' class='ladi-element'>
+              <div class='ladi-image'>
+                <div class='ladi-image-background'></div>
+              </div>
+            </div>
+            <div data-action='true' id='GROUP161' class='ladi-element'>
+              <div class='ladi-group'>
+                <div id='IMAGE131' class='ladi-element'>
+                  <div class='ladi-image'>
+                    <div class='ladi-image-background'></div>
+                  </div>
+                </div>
+                <div id='PARAGRAPH163' class='ladi-element'>
+                  <div class='ladi-paragraph ladi-transition'>{{ $footer->phone }}<br><br>{{ $footer->hotline }}<br><br>{{ $footer->address }}<br><br>{{ $footer->website }}<br></div>
+                </div>
+                <div id='PARAGRAPH164' class='ladi-element'>
+                  <div class='ladi-paragraph ladi-transition' style="text-align: right;"><span style='font-weight: bold;'>Đăng ký khoản vay: <br><br>Chăm sóc khách hàng:<br><br>Địa
+                      chỉ:<br><br><br>Website:</span><br></div>
+                </div>
+                <div id='LINE90' class='ladi-element'>
+                  <div class='ladi-line'>
+                    <div class='ladi-line-container'></div>
+                  </div>
+                </div>
+                <div id='LINE91' class='ladi-element'>
+                  <div class='ladi-line'>
+                    <div class='ladi-line-container'></div>
+                  </div>
+                </div>
+
+
+                <div id='PARAGRAPH166' class='ladi-element'>
+                  <div class='ladi-paragraph ladi-transition'>{{ $footer->note }}</div>
+                </div>
+                <div id='PARAGRAPH167' class='ladi-element'>
+                  <div class='ladi-paragraph ladi-transition'>{!! $footer->content !!}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      <div id="SECTION28" class='ladi-section'>
+          <div class='ladi-section-background'></div>
+          <div class="ladi-container">
+            <div id="IMAGE136" class='ladi-element'>
+              <div class='ladi-image'>
+                <div class="ladi-image-background"></div>
+              </div>
+            </div>
+            <div id="PARAGRAPH168" class='ladi-element'>
+              <div class='ladi-paragraph ladi-transition'> {{ $footer->phone }}<br><br>{{ $footer->hotline }}<br><br>{{ $footer->address }}<br><br>{{ $footer->website }}<br></div>
+            </div>
+            <div id="PARAGRAPH169" class='ladi-element'>
+              <div class='ladi-paragraph ladi-transition'><span style="font-weight: bold;">Đăng ký <br> khoản vay:<br><br>Chăm sóc <br> khách hàng:<br><br><br>Địa
+                  chỉ:<br><br><br><br>Website:</span><br></div>
+            </div>
+
+            <div id="LINE95" class='ladi-element'>
+              <div class='ladi-line'>
+                <div class="ladi-line-container"></div>
+              </div>
+            </div>
+
+            <div id="PARAGRAPH171" class='ladi-element'>
+              <div class='ladi-paragraph ladi-transition'>{{ $footer->note }}</div>
+            </div>
+            <div id="PARAGRAPH199" class='ladi-element'>
+              <div class='ladi-paragraph ladi-transition'>{!! $footer->content !!}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     <div id="SECTION_POPUP" class='ladi-section'>
       <div class='ladi-section-background'></div>
       <div class="ladi-container">
@@ -7618,7 +7868,7 @@
     }
 
     /* input[type="range"]::-webkit-slider-runnable-track {
-  background-color: #e7252b;
+  background-color: {{ $setting->color }};
 } */
 
     input[type="range"]::-webkit-slider-thumb:hover {
@@ -7651,7 +7901,7 @@
     }
 
     .border-red {
-      border: 1px solid #e7252b;
+      border: 1px solid {{ $setting->color }};
     }
 
     @media (max-width: 768px) {

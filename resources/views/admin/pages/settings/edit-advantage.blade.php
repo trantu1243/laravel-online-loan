@@ -29,22 +29,13 @@
                     <div class="card-header">
                       <h3 class="card-title">Sửa</h3>
                     </div>
-                    <form action="{{ Route('post.edit-customer', ['id' => $customer->id ]) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ Route('post.edit-advantage', ['id' => $advantage->id ]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
-                            <div class="form-group">
-                                <label for="name">Tên</label>
-                                <input name="name" type="text" class="form-control" id="name" value="{{ $customer->name }}" placeholder="Enter name" autocomplete="none">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="career">Nghề nghiệp</label>
-                                <input name="career" type="text" class="form-control" id="career" value="{{ $customer->career }}" placeholder="Enter career" autocomplete="none">
-                            </div>
 
                             <div class="form-group">
                                 <label for="content">Content</label>
-                                <input name="content" type="text" class="form-control" id="content" value="{{ $customer->content }}" placeholder="Enter content" autocomplete="none">
+                                <input name="content" type="text" class="form-control" id="content" value="{{ $advantage->content }}" placeholder="Enter content" autocomplete="none" required>
                             </div>
 
                             <div class="form-group">
@@ -61,11 +52,11 @@
                             <div class="form-group" id="selectImage">
                                 <label for="image">Chọn ảnh</label>
                                 <select name="selectImage" id="image" class="form-control" onchange="updateImage(this, 'sltImage')">
-                                    @foreach ($customerImage as $item)
-                                        <option value="{{ $item->file }}" {{ $customer->image == $item->file ? 'selected' : '' }}>{{ $item->filename }}</option>
+                                    @foreach ($advantageImage as $item)
+                                        <option value="{{ $item->file }}" {{ $advantage->image == $item->file ? 'selected' : '' }}>{{ $item->filename }}</option>
                                     @endforeach
                                 </select>
-                                <img id="sltImage" src="{{$customer->image}}" height="80px" style = "margin-top: 10px">
+                                <img id="sltImage" src="{{$advantage->image}}" height="80px" style = "margin-top: 10px">
                             </div>
 
                             <div class="form-group hidden" id="uploadImage">

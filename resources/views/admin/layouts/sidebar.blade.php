@@ -46,7 +46,7 @@
             </li>
 
             @if(auth()->user()->role === 'ADMIN')
-                <li class="nav-item {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'customer-setting' || Route::currentRouteName() == 'show-code' || Route::currentRouteName() == 'show-others' || Route::currentRouteName() == 'form-setting' ? 'menu-open' : '' }}">
+                <li class="nav-item {{ Route::currentRouteName() == 'settings' || Route::currentRouteName() == 'customer-setting' || Route::currentRouteName() == 'show-code' ||Route::currentRouteName() == 'advantage-setting' || Route::currentRouteName() == 'form-setting' || Route::currentRouteName() == 'estimate-setting' || Route::currentRouteName() == 'process-setting' || Route::currentRouteName() == 'question-setting' ? 'menu-open' : '' }}">
                     <a href="" class="nav-link">
                         <i class="nav-icon fa fa-cog"></i>
                         <p>Giao diện và cài đặt
@@ -68,12 +68,45 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="/admin/setting/advantage" class="nav-link {{ Route::currentRouteName() == 'advantage-setting' ? 'active' : '' }}">
+                                <i class="fa fa-genderless nav-icon"></i>
+                                <p>Ưu điểm vượt trội</p>
+                            </a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a href="/admin/setting/estimate" class="nav-link {{ Route::currentRouteName() == 'estimate-setting' ? 'active' : '' }}">
+                                <i class="fa fa-genderless nav-icon"></i>
+                                <p>Ước tính khoản vay</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/setting/process" class="nav-link {{ Route::currentRouteName() == 'process-setting' ? 'active' : '' }}">
+                                <i class="fa fa-genderless nav-icon"></i>
+                                <p>Quy trình đăng kí vay</p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="/admin/setting/customer" class="nav-link {{ Route::currentRouteName() == 'customer-setting' ? 'active' : '' }}">
                                 <i class="fa fa-genderless nav-icon"></i>
-                                <p>Đánh giá</p>
+                                <p>Khách hàng nói gì</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/setting/question" class="nav-link {{ Route::currentRouteName() == 'question-setting' ? 'active' : '' }}">
+                                <i class="fa fa-genderless nav-icon"></i>
+                                <p>Câu hỏi thường gặp</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/setting/footer" class="nav-link {{ Route::currentRouteName() == 'footer-setting' ? 'active' : '' }}">
+                                <i class="fa fa-genderless nav-icon"></i>
+                                <p>Footer</p>
                             </a>
                         </li>
 
@@ -84,12 +117,6 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="/admin/setting/others" class="nav-link {{ Route::currentRouteName() == 'show-others' ? 'active' : '' }}">
-                                <i class="fa fa-genderless nav-icon"></i>
-                                <p>Khác</p>
-                            </a>
-                        </li>
                     </ul>
 
                 </li>
