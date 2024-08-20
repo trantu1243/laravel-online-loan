@@ -5252,7 +5252,7 @@
       }
 
       #POPUP2>.ladi-popup>.ladi-popup-background {
-        background-image: url("/ladi/20240312065954-bf3ks.png");
+        background-image: url("{{ $setting->popup_image }}");
       }
 
       #IMAGE143,
