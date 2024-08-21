@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="amount">Gói vay (triệu)</label>
+                                        <label for="amount">Gói vay (lưu ý đơn vị là triệu vnd, vd: 30 triệu vnd)</label>
                                         <input name="amount" type="number" class="form-control" id="amount" placeholder="Enter amount" autocomplete="none">
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="minIncome">Mức thu nhập tối thiểu để vay (triệu)</label>
+                                        <label for="minIncome">Mức thu nhập tối thiểu để vay (triệu vnd, vd: 5 triệu vnd)</label>
                                         <input name="minIncome" type="number" class="form-control" id="minIncome" placeholder="Enter min income" autocomplete="none">
                                     </div>
                                 </div>

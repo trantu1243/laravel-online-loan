@@ -82,7 +82,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="">Số tiền mong muốn vay</label>
-                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->desiredAmount }} triệu vnd" disabled>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ number_format($customer->desiredAmount, 0, '', '.') }} vnd" disabled>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -94,7 +94,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="">Mức thu nhập</label>
-                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->income }}  triệu vnd" disabled>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ number_format($customer->income, 0, '', '.') }} vnd" disabled>
                                         </div>
                                     </div>
                                 </div>

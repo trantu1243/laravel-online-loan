@@ -98,19 +98,19 @@
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label for="">Số tiền mong muốn vay</label>
-                                                    <input type="number" class="form-control " name="desiredAmount" placeholder="Enter ..." value="{{ $customer->desiredAmount }}" required>
+                                                    <input type="text" class="form-control formattedNumberInput" name="desiredAmount" placeholder="Enter ..." value="{{ number_format($customer->desiredAmount, 0, '', '.') }}" required>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label for="">Thời hạn trả mong muốn</label>
-                                                    <input type="number" class="form-control " name="desiredDuration" placeholder="Enter ..." value="{{ $customer->desiredDuration }}"" required>
+                                                    <input type="number" class="form-control " name="desiredDuration" placeholder="Enter ..." value="{{ $customer->desiredDuration }}" required>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group">
                                                     <label for="">Mức thu nhập</label>
-                                                    <input type="number" class="form-control " name="income" placeholder="Enter ..." value="{{ $customer->income }}" required>
+                                                    <input type="text" class="form-control formattedNumberInput" name="income" placeholder="Enter ..." value="{{ number_format($customer->income, 0, '', '.') }}" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,6 +122,7 @@
                                                 <option value="SALE" {{ $customer->status == "SALE" ? "selected" : ""}}>Đang gọi</option>
                                                 <option value="FILL" {{ $customer->status == "FILL" ? "selected" : ""}}>Đang điền tt</option>
                                                 <option value="CENSOR" {{ $customer->status == "CENSOR" ? "selected" : ""}}>Đang duyệt</option>
+                                                <option value="TRANSFER" {{ $customer->status == "TRANSFER" ? "selected" : ""}}>Đang chuyển tiền</option>
                                                 <option value="DONE" {{ $customer->status == "DONE" ? "selected" : ""}}>Done</option>
                                                 <option value="DISABLE" {{ $customer->status == "DISABLE" ? "selected" : ""}}>Disable</option>
 
@@ -190,21 +191,49 @@
                                 <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
                                     <div class="card-body">
 
-                                        <div class="form-group">
-                                            <label for="" style="display: block">Mặt trước cccd</label>
-                                            <img src="{{ $customerInfo->frontCCCD }}" width="640"/>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="" style="display: block">Mặt trước cccd</label>
+                                                    <img src="{{ $customerInfo->frontCCCD }}" width="90%"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="" style="display: block">Mặt sau cccd</label>
+                                                    <img src="{{ $customerInfo->backCCCD }}" width="90%" />
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="" style="display: block">Mặt sau cccd</label>
-                                            <img src="{{ $customerInfo->backCCCD }}" width="640" />
-                                        </div>
+
                                         <div class="form-group">
                                             <label for="" style="display: block">Khuôn mặt</label>
-                                            <img src="{{ $customerInfo->faceData }}" width="640" />
+                                            <img src="{{ $customerInfo->faceData }}" width="480" />
                                         </div>
-                                        <div class="form-group">
-                                            <label for="" >Bảng lương: </label>
-                                            <a href="{{ $customerInfo->salary_slip }}"  target="_blank">Xem bảng lương</a>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="" >Bảng lương: </label>
+                                                    @php
+                                                        $salary_slips = json_decode($customerInfo->salary_slip, true);
+                                                    @endphp
+                                                    @foreach ($salary_slips as $index => $item)
+                                                        <a href="{{ $item }}"  target="_blank" style="display: block">Bảng lương {{ $loop->iteration }}</a>
+                                                    @endforeach
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="" >Hợp đồng lao động: </label>
+                                                    @php
+                                                        $employment_contracts = json_decode($customerInfo->employment_contract, true);
+                                                    @endphp
+                                                    @foreach ($employment_contracts as $index => $item)
+                                                        <a href="{{ $item }}"  target="_blank" style="display: block">Hợp đồng lao động {{ $loop->iteration }}</a>
+                                                    @endforeach
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox">
@@ -230,5 +259,16 @@
 
         </div>
     </div><!--/. container-fluid -->
+    <script>
+        const inputs = document.querySelectorAll('.formattedNumberInput');
 
+        inputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                let value = e.target.value;
+                value = value.replace(/[^0-9]/g, '');
+                value = new Intl.NumberFormat('vi-VN').format(value);
+                e.target.value = value;
+            });
+        });
+    </script>
 @endsection

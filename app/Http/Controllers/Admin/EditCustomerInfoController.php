@@ -9,6 +9,7 @@ use App\Models\Sale;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EditCustomerInfoController extends Controller
 {
@@ -50,6 +51,10 @@ class EditCustomerInfoController extends Controller
         $customer->salaryType = $request->input('salaryType');
         $customer->timeCall = $request->input('timeCall');
         $customer->status = $request->input('status');
+        $customer->linkfb = $request->input('linkfb');
+        $customer->desiredAmount = str_replace('.', '', $request->input('desiredAmount'));
+        $customer->desiredDuration = $request->input('desiredDuration');
+        $customer->income = str_replace('.', '', $request->input('income'));
 
         if ($request->has('sale')) $customer->sale = $request->input('sale');
         if ($request->has('censor')) $customer->censor = $request->input('censor');

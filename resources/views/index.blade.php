@@ -7171,7 +7171,7 @@
                                 <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
                                     <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="amount" required
-                                        class="ladi-form-control" type="number" placeholder="Nhập số tiền vay (triệu đồng)" value="" /></div>
+                                        class="ladi-form-control formattedNumberInput" type="text" placeholder="Nhập số tiền vay (triệu đồng)" value="" /></div>
                                 </div>
                             </div>
                             <div id="FORM_ITEM9" class='ladi-element'>
@@ -7185,7 +7185,7 @@
                                 <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
                                     <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="income" required
-                                        class="ladi-form-control" type="number" placeholder="Nhập mức thu nhập (triệu đồng)" value="" /></div>
+                                        class="ladi-form-control formattedNumberInput" type="text" placeholder="Nhập mức thu nhập (triệu đồng)" value="" /></div>
                                 </div>
                             </div>
                             <div id="FORM_ITEM8" class='ladi-element'>
@@ -7428,7 +7428,7 @@
                                     <div class="ladi-form-item-container">
                                       <div class="ladi-form-item-background"></div>
                                       <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="amount"
-                                          required class="ladi-form-control" type="number" placeholder="Nhập số tiền vay (triệu đồng)"
+                                          required class="ladi-form-control formattedNumberInput" type="text" placeholder="Nhập số tiền vay (triệu đồng)"
                                           value="" /></div>
                                     </div>
                                 </div>
@@ -7444,7 +7444,7 @@
                                     <div class="ladi-form-item-container">
                                       <div class="ladi-form-item-background"></div>
                                       <div class='ladi-form-item'><input autocomplete="off" tabindex="1" name="income"
-                                          required class="ladi-form-control" type="number" placeholder="Nhập mức thu nhập (triệu đồng)"
+                                          required class="ladi-form-control formattedNumberInput" type="text" placeholder="Nhập mức thu nhập (triệu đồng)"
                                           value="" /></div>
                                     </div>
                                 </div>
@@ -8728,7 +8728,7 @@
                     <div class="mb-3">
                         <label for="amount" class="form-label font-title-form">Số tiền cần vay</label><span
                           style="color: {{ $setting->color }};">*</span>
-                        <input type="text" placeholder="Nhập số tiền cần vay (triệu đồng)" class="form-control" name="amount">
+                        <input type="text" class="formattedNumberInput" placeholder="Nhập số tiền cần vay (triệu đồng)" class="form-control" name="amount">
                     </div>
                     <div class="mb-3">
                         <label for="linkfb" class="form-label font-title-form">Thời hạn vay</label><span
@@ -8738,7 +8738,7 @@
                     <div class="mb-3">
                         <label for="linkfb" class="form-label font-title-form">Mức thu nhập</label><span
                           style="color: {{ $setting->color }};">*</span>
-                        <input type="text" placeholder="Nhập mức thu nhập (triệu đồng" class="form-control" name="income">
+                        <input type="text" class="formattedNumberInput" placeholder="Nhập mức thu nhập (triệu đồng" class="form-control" name="income">
                     </div>
                     <div class="mb-1 d-flex">
                       <p class="mr-1"><span style="font-size: 12px;">Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử
@@ -8914,6 +8914,18 @@
     </div>
   </div>
   <div id="loading"></div>
+  <script>
+    const inputs = document.querySelectorAll('.formattedNumberInput');
+
+    inputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+            let value = e.target.value;
+            value = value.replace(/[^0-9]/g, '');
+            value = new Intl.NumberFormat('vi-VN').format(value);
+            e.target.value = value;
+        });
+    });
+</script>
   <!--[if lt IE 9]><script src="https://w.ladicdn.com/v4/source/html5shiv.min.js?v=1711350428609"></script><script src="https://w.ladicdn.com/v4/source/respond.min.js?v=1711350428609"></script><![endif]-->
   <style type="text/css">
     @-webkit-keyframes flash {

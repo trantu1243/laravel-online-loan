@@ -164,9 +164,9 @@ class ApiController extends Controller
                 'salaryType' => $note->income_amount,
                 'timeCall' => $note->income,
                 'linkfb' => $note->linkfb,
-                'desiredAmount' => $note->amount,
+                'desiredAmount' => str_replace('.', '', $note->amount),
                 'desiredDuration' => $note->duration,
-                'income' => $note->inc,
+                'income' => str_replace('.', '', $note->inc),
                 'status' => 'PENDING',
             ]);
 

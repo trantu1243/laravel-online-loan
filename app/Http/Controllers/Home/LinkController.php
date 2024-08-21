@@ -7,6 +7,8 @@ use App\Models\Code;
 use App\Models\Contract;
 use App\Models\CustomerInfo;
 use App\Models\CustomerInfoV2;
+use App\Models\FooterInfo;
+use App\Models\Question;
 use App\Models\Setting;
 use Exception;
 use Firebase\JWT\ExpiredException;
@@ -31,8 +33,17 @@ class LinkController extends Controller
             $user = CustomerInfo::findOrFail($customerId);
             $setting = Setting::find(1);
             $code = Code::find(1);
+            $questions = Question::all();
+            $footer = FooterInfo::find(1);
 
-            return view('link-v2', ['token' => $token, 'setting' => $setting, 'code' => $code]);
+            return view('link-v2', [
+                'token' => $token,
+                'setting' => $setting,
+                'code' => $code,
+                'questions' => $questions,
+                'footer' => $footer
+
+            ]);
 
         } catch (ExpiredException $e) {
             return response()->json(['error' => 'Link has expired.'], 401);
@@ -123,7 +134,18 @@ class LinkController extends Controller
             $setting = Setting::find(1);
             $code = Code::find(1);
 
-            return view('link-v3', ['token' => $token, 'setting' => $setting, 'code' => $code]);
+            $questions = Question::all();
+            $footer = FooterInfo::find(1);
+
+
+            return view('link-v3', [
+                'token' => $token,
+                'setting' => $setting,
+                'code' => $code,
+                'questions' => $questions,
+                'footer' => $footer
+
+            ]);
 
         } catch (ExpiredException $e) {
             return response()->json(['error' => 'Link has expired.'], 401);
@@ -152,7 +174,8 @@ class LinkController extends Controller
             $request->validate([
                 'frontCCCD' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
                 'backCCCD' => 'required|image|mimes:jpeg,png,jpg,gif,svg,pdf',
-                'salary_slip' => 'required|file|mimes:pdf,jpg,png,doc,docx',
+                'salary_slip.*' => 'required|file|mimes:pdf,jpg,png,doc,docx',
+                'employment_contract.*' => 'required|file|mimes:pdf,jpg,png,doc,docx',
                 'faceData' => [
                     'required',
                     'regex:/^data:image\/(png|jpg|jpeg|gif);base64,/',
@@ -165,12 +188,21 @@ class LinkController extends Controller
             //backCCCD
             $backCCCD = $this->storeImage($request->file('backCCCD'), 'backCCCD');
 
-            $file = $request->file('salary_slip');
-
             // salary_slip
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-            $file->storeAs('files/salary_slips', $fileName, 'public');
-            $salary_slip = "/storage/files/salary_slips/{$fileName}";
+            $salary_slips = [];
+            foreach ($request->file('salary_slip') as $file) {
+                $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('files/salary_slips', $fileName, 'public');
+                $salary_slips[] = "/storage/files/salary_slips/{$fileName}";
+            }
+
+            // employment_contract
+            $employment_contract = [];
+            foreach ($request->file('employment_contract') as $file) {
+                $fileName = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+                $file->storeAs('files/employment_contracts', $fileName, 'public');
+                $employment_contract[] = "/storage/files/employment_contracts/{$fileName}";
+            }
 
             // face image
             $base64Image = $request->input('faceData');
@@ -196,7 +228,8 @@ class LinkController extends Controller
                     'customer_info_id' => $customer->id,
                     'frontCCCD' => $frontCCCD,
                     'backCCCD' => $backCCCD,
-                    'salary_slip' => $salary_slip,
+                    'salary_slip' => json_encode($salary_slips),
+                    'employment_contract' => json_encode($employment_contract),
                     'faceData' => $faceData,
                     'confirm' => true,
                     'accept' =>true
@@ -206,7 +239,8 @@ class LinkController extends Controller
                     'customer_info_id' => $customer->id,
                     'frontCCCD' => $frontCCCD,
                     'backCCCD' => $backCCCD,
-                    'salary_slip' => $salary_slip,
+                    'salary_slip' => json_encode($salary_slips),
+                    'employment_contract' => json_encode($employment_contract),
                     'faceData' => $faceData,
                     'confirm' => true,
                     'accept' =>true

@@ -1861,7 +1861,7 @@
 
     #BOX31,
     #GROUP103 {
-      height: 400px;
+      height: 470px;
     }
 
     #BOX31>.ladi-box,
@@ -1935,6 +1935,7 @@
     #FORM_ITEM9,
     #FORM_ITEM72,
     #FORM_ITEM76,
+    #FORM_ITEM761,
     #FORM3,
     #FORM_ITEM10,
     #FORM_ITEM101,
@@ -1944,6 +1945,7 @@
     #FORM_ITEM14,
     #FORM_ITEM74,
     #FORM_ITEM77,
+    #FORM_ITEM771,
     #PARAGRAPH10,
     #CAROUSEL1,
     #PARAGRAPH144,
@@ -2155,7 +2157,8 @@
     }
     #FORM_ITEM2,
     #FORM_ITEM4,
-    #FORM_ITEM76{
+    #FORM_ITEM76,
+    #FORM_ITEM761{
       height: 30px;
     }
     #BUTTON25>.ladi-button>.ladi-button-background,
@@ -2209,6 +2212,7 @@
     #PARAGRAPH70,
     #PARAGRAPH71,
     #PARAGRAPH72,
+    #PARAGRAPH721,
     #PARAGRAPH75,
     #HEADLINE34,
     #HEADLINE35,
@@ -2244,12 +2248,14 @@
     #PARAGRAPH70>.ladi-paragraph,
     #PARAGRAPH71>.ladi-paragraph,
     #PARAGRAPH72>.ladi-paragraph,
+    #PARAGRAPH721>.ladi-paragraph,
     #PARAGRAPH73>.ladi-paragraph,
     #PARAGRAPH733>.ladi-paragraph,
     #PARAGRAPH75>.ladi-paragraph,
     #PARAGRAPH79>.ladi-paragraph,
     #PARAGRAPH80>.ladi-paragraph,
     #PARAGRAPH81>.ladi-paragraph,
+    #PARAGRAPH811>.ladi-paragraph,
     #PARAGRAPH82>.ladi-paragraph,
     #PARAGRAPH820>.ladi-paragraph,
     #PARAGRAPH84>.ladi-paragraph,
@@ -2280,9 +2286,14 @@
       left: 0px;
     }
 
+    #PARAGRAPH721{
+        top: 206px;
+        left: 0px;
+    }
+
     #PARAGRAPH73,
     #PARAGRAPH241 {
-      top: 208px;
+      top: 276px;
       left: 0px;
     }
 
@@ -3961,7 +3972,7 @@
       #FORM_ITEM1011,
       #FORM_ITEM54,
       #FORM_ITEM66 {
-        top: 214px;
+        top: 282px;
       }
       #FORM_ITEM7012 {
         top: 306px;
@@ -3971,7 +3982,7 @@
       }
 
       #BUTTON25 {
-        top: 240px;
+        top: 308px;
       }
 
       #PARAGRAPH257 {
@@ -4004,12 +4015,22 @@
         width: 362.19px;
       }
 
+      #FORM_ITEM761 {
+        width: 362.19px;
+      }
+
+
       #PARAGRAPH258 {
         top: 137.5px;
       }
 
       #FORM_ITEM76{
         top: 143.5px;
+
+      }
+
+      #FORM_ITEM761{
+        top: 212px;
 
       }
 
@@ -4169,9 +4190,17 @@
         top: 459px;
       }
 
+
+      #FORM_ITEM771 {
+        width: 363.166px;
+        height: 35px;
+        top: 459px;
+      }
+
       #PARAGRAPH79,
       #PARAGRAPH80,
       #PARAGRAPH81,
+      #PARAGRAPH811,
       #PARAGRAPH82,
       #PARAGRAPH820,
       #PARAGRAPH84,
@@ -4194,6 +4223,11 @@
       }
 
       #PARAGRAPH81 {
+        top: 137.5px;
+        left: 0px;
+      }
+
+      #PARAGRAPH811 {
         top: 137.5px;
         left: 0px;
       }
@@ -5489,7 +5523,8 @@
         top: 270px;
       }
 
-      #FORM_ITEM76 {
+      #FORM_ITEM76,
+      #FORM_ITEM761 {
         width: 363px;
         height: 35px;
         top: 317.5px;
@@ -5538,7 +5573,7 @@
       #GROUP109,
       #BOX32 {
         width: 402.551px;
-        height: 410px;
+        height: 478px;
       }
 
       #GROUP196 {
@@ -5585,7 +5620,7 @@
 
       #FORM_ITEM10,
       #FORM_ITEM66 {
-        top: 193px;
+        top: 255px;
       }
 
       #PARAGRAPH8201 {
@@ -5603,7 +5638,7 @@
       }
 
       #BUTTON27 {
-        top: 225.812px;
+        top: 287.812px;
         left: 0.41625px;
       }
 
@@ -5615,6 +5650,7 @@
       #FORM_ITEM11,
       #FORM_ITEM12,
       #FORM_ITEM77,
+      #FORM_ITEM771,
       #FORM_ITEM67,
       #FORM_ITEM68 {
         width: 363px;
@@ -5649,9 +5685,14 @@
         top: 130px;
       }
 
+      #FORM_ITEM771{
+        top: 192px;
+      }
+
       #PARAGRAPH79,
       #PARAGRAPH80,
       #PARAGRAPH81,
+      #PARAGRAPH811,
       #PARAGRAPH84,
       #PARAGRAPH4,
       #PARAGRAPH256,
@@ -5681,8 +5722,13 @@
         left: 0.24975px;
       }
 
+      #PARAGRAPH811 {
+        top: 185.551px;
+        left: 0.24975px;
+      }
+
       #PARAGRAPH82 {
-        top: 186.102px;
+        top: 248.102px;
         left: 0.24975px;
       }
 
@@ -6898,7 +6944,7 @@
     input[type=file]::file-selector-button {
       margin-right: 20px;
       border: none;
-      background: rgb(236, 24, 72);
+      background: {{ $setting->color }};
       padding: 4px 8px;
       border-radius: 10px;
       color: #fff;
@@ -6908,7 +6954,7 @@
     }
 
     input[type=file]::file-selector-button:hover {
-      background: rgb(197, 9, 53);
+      background: {{ $setting->color }};
     }
 
     .camera{
@@ -6917,7 +6963,7 @@
       height: 26px;
       width: 78px;
       padding: 3px 29px;
-      background-color: rgb(236, 24, 72);
+      background-color: {{ $setting->color }};
       color: #fff;
       border-radius: 10px;
       margin-left: 5px;
@@ -7026,8 +7072,18 @@
                               <div id="FORM_ITEM76" class='ladi-element'>
                                 <div class="ladi-form-item-container">
                                   <div class="ladi-form-item-background"></div>
-                                  <div class='ladi-form-item'><input autocomplete="off" tabindex="3" name="salary_slip"
-                                      required class="ladi-form-control" type="file"
+                                  <div class='ladi-form-item'><input autocomplete="off" tabindex="3" name="salary_slip[]"
+                                      required class="ladi-form-control" type="file" multiple
+                                      placeholder="Chọn file" value="" />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div id="FORM_ITEM761" class='ladi-element'>
+                                <div class="ladi-form-item-container">
+                                  <div class="ladi-form-item-background"></div>
+                                  <div class='ladi-form-item'><input autocomplete="off" tabindex="3" name="employment_contract[]"
+                                      required class="ladi-form-control" type="file" multiple
                                       placeholder="Chọn file" value="" />
                                   </div>
                                 </div>
@@ -7081,6 +7137,9 @@
                         <div id="PARAGRAPH72" class='ladi-element'>
                           <div class='ladi-paragraph'>Bảng lương<span style="color: {{ $setting->color }};">*</span></div>
                         </div>
+                        <div id="PARAGRAPH721" class='ladi-element'>
+                            <div class='ladi-paragraph'>Hợp đồng lao động<span style="color: {{ $setting->color }};">*</span></div>
+                          </div>
 
                         <div id="PARAGRAPH73" class='ladi-element'>
                           <div class='ladi-paragraph'>Ảnh khuôn mặt<span
@@ -7157,12 +7216,22 @@
                                 <div id="FORM_ITEM77" class='ladi-element'>
                                   <div class="ladi-form-item-container">
                                     <div class="ladi-form-item-background"></div>
-                                    <div class='ladi-form-item'><input autocomplete="off" tabindex="3" name="salary_slip"
-                                        required class="ladi-form-control" type="file"
+                                    <div class='ladi-form-item'><input autocomplete="off" tabindex="3" name="salary_slip[]"
+                                        required class="ladi-form-control" type="file" multiple
                                         placeholder="Chọn file" value="" />
                                     </div>
                                   </div>
                                 </div>
+
+                                <div id="FORM_ITEM771" class='ladi-element'>
+                                    <div class="ladi-form-item-container">
+                                      <div class="ladi-form-item-background"></div>
+                                      <div class='ladi-form-item'><input autocomplete="off" tabindex="3" name="employment_contract[]"
+                                          required class="ladi-form-control" type="file" multiple
+                                          placeholder="Chọn file" value="" />
+                                      </div>
+                                    </div>
+                                  </div>
 
                                 <div id="FORM_ITEM10" class='ladi-element'>
                                   <div class="ladi-form-item-container">
@@ -7214,6 +7283,10 @@
                               <div class='ladi-paragraph'>Bảng lương<span style="color: {{ $setting->color }};">*</span>
                               </div>
                             </div>
+                            <div id="PARAGRAPH811" class='ladi-element'>
+                                <div class='ladi-paragraph'>Hợp đồng lao động<span style="color: {{ $setting->color }};">*</span>
+                                </div>
+                              </div>
                             <div id="PARAGRAPH82" class='ladi-element'>
                               <div class='ladi-paragraph'>Ảnh khuôn mặt<span
                                   style="color: {{ $setting->color }};">*</span></div>

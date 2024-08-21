@@ -16,7 +16,8 @@ class CustomerInfoV2 extends Model
         'salary_slip',
         'faceData',
         'confirm',
-        'accept'
+        'accept',
+        'employment_contract'
     ];
 
     protected $table = 'customer_infor_v2s';

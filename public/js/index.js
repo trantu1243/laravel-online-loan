@@ -29,7 +29,7 @@ BUTTON_TEXT25.addEventListener("click", () => {
   let formData = $(formId).getValue();
   let rsValidate = this.validate(formData);
   if (!rsValidate.valid) {
-    showNotiDefault('error', 'Thất bại', 'Quý khách vui lòng điền đầy đủ thông tin, vui lòng kiểm tra lại!');
+    showNotiDefault('error', 'Thất bại', rsValidate.msg? rsValidate.msg: 'Quý khách vui lòng điền đầy đủ thông tin, vui lòng kiểm tra lại!');
     return;
   }
   if (!formData.i_agree_terms_and_conditions) {
@@ -46,7 +46,7 @@ btnSubmit.addEventListener("click", () => {
   let formData = $(formId).getValue();
   let rsValidate = this.validate(formData);
   if (!rsValidate.valid) {
-    showNotiDefault('error', 'Thất bại', 'Quý khách vui lòng điền đầy đủ thông tin, vui lòng kiểm tra lại!');
+    showNotiDefault('error', 'Thất bại', rsValidate.msg? rsValidate.msg: 'Quý khách vui lòng điền đầy đủ thông tin, vui lòng kiểm tra lại!');
     return;
   }
   if (!formData.i_agree_terms_and_conditions) {
@@ -187,7 +187,7 @@ btnSubmitPopup.addEventListener("click", (event) => {
   let formData = $(formId).getValue();
   let rsValidate = this.validate(formData);
   if (!rsValidate.valid) {
-    showNoti('error', 'Thất bại', 'Quý khách vui lòng điền đầy đủ thông tin, vui lòng kiểm tra lại!');
+    showNoti('error', 'Thất bại', rsValidate.msg? rsValidate.msg: 'Quý khách vui lòng điền đầy đủ thông tin, vui lòng kiểm tra lại!');
     return;
   }
   if (!formData.i_agree_terms_and_conditions) {
@@ -437,42 +437,53 @@ function validate(formData) {
 
   if(!formData.idCard) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền căn cước công dân!";
   } else if (!lib.validateIdCard(formData.idCard)){
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng kiểm tra lại căn cước công dâni!";
   }
 
   if(!formData.name) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền họ tên!";
   }
 
   if(!formData.salaryType || formData.salaryType == 0) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng chọn nhóm khách hàng!";
   }
 
   if (!formData.timeCall1 && !formData.timeCall2) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng chọn thời gian nhận cuộc gọi!";
   }
 
   if(!formData.linkfb) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền link facebook!";
   }
 
   if(!formData.amount || formData.amount == 0) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền số tiền vay!";
   }
 
   if(!formData.duration || formData.duration == 0) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền thời hạn vay!";
   }
 
   if(!formData.income || formData.income == 0) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền mức thu nhập!";
   }
 
   if (!formData.phone) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng điền số điện thoại!";
   } else if (!lib.validatePhoneNumber(formData.phone)) {
     rs.valid = false;
+    rs.msg = "Quý khách vui lòng kiểm tra lại số điện thoại!";
   }
 
   return rs;

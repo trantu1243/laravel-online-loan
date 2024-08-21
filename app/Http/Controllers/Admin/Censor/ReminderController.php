@@ -18,9 +18,9 @@ class ReminderController extends Controller
             ->where('status', 'DONE')
             ->where('debt', '>', 0)
             ->where(function($query) use ($day) {
-                $query->where('day', now()->day);
+                $query->where('day', now()->day - 1);
                 for($i = 1; $i < $day; $i++)
-                    $query->orWhere('day', now()->addDay($i)->day);
+                    $query->orWhere('day', now()->addDay($i)->day - 1);
             })
             ->paginate(15);
         $overdueCustomers = CustomerInfo::with(['loan'])

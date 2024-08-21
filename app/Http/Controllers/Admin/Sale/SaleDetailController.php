@@ -19,7 +19,7 @@ class SaleDetailController extends Controller
     public function show($id){
         $userId = Auth::id();
         $customer = CustomerInfo::with(['Sale', 'Censor', 'loan'])->where('id', $id)->where('sale', $userId)->first();
-        $loans = Sale::where('minIncome', '<=', $customer->income)->get();
+        $loans = Sale::where('minIncome', '<=', $customer->income/1000000)->get();
         return view('admin.pages.sale.detail', ['customer' => $customer, 'loans' => $loans]);
     }
 

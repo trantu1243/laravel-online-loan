@@ -83,7 +83,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="">Số tiền mong muốn vay</label>
-                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->desiredAmount }} triệu vnd" disabled>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ number_format($customer->desiredAmount, 0, '', '.') }} vnd" disabled>
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -95,7 +95,7 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label for="">Mức thu nhập</label>
-                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ $customer->income }}  triệu vnd" disabled>
+                                            <input type="text" class="form-control " placeholder="Enter ..." value="{{ number_format($customer->income, 0, '', '.') }} vnd" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -136,10 +136,34 @@
                                     <label for="" style="display: block">Khuôn mặt</label>
                                     <img src="{{ $customerInfo->faceData }}" width="480" />
                                 </div>
-                                <div class="form-group">
-                                    <label for="" >Bảng lương: </label>
-                                    <a href="{{ $customerInfo->salary_slip }}"  target="_blank">Xem bảng lương</a>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="" >Bảng lương: </label>
+                                            @php
+                                                $salary_slips = json_decode($customerInfo->salary_slip, true);
+                                            @endphp
+                                            @foreach ($salary_slips as $index => $item)
+                                                <a href="{{ $item }}"  target="_blank" style="display: block">Bảng lương {{ $loop->iteration }}</a>
+                                            @endforeach
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="" >Hợp đồng lao động: </label>
+                                            @php
+                                                $employment_contracts = json_decode($customerInfo->employment_contract, true);
+                                            @endphp
+                                            @foreach ($employment_contracts as $index => $item)
+                                                <a href="{{ $item }}"  target="_blank" style="display: block">Hợp đồng lao động {{ $loop->iteration }}</a>
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
+
+
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
                                         <input class="custom-control-input" type="checkbox" id="confirm" name="confirm" value="confirm" checked disabled>
