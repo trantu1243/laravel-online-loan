@@ -75,4 +75,12 @@ class DashboardController extends Controller
         toastr()->success(" Xóa thành công");
         return back();
     }
+
+    public function delete($id){
+        $customer = CustomerInfo::findOrFail($id);
+        $customer->delete();
+        return [
+            'status' => true
+        ];
+    }
 }

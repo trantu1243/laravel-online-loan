@@ -96,28 +96,31 @@
             <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                      <h3 class="card-title">Danh sách khách hàng</h3>
-
+                        <button class="btn btn-danger btn-sm" id="delete-btn">Xóa</button>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body table-responsive p-0">
                     <table class="table table-hover text-nowrap">
                       <thead>
                         <tr>
-                          <th>CCCD</th>
-                          <th>Tên</th>
-                          <th>SĐT</th>
-                          <th style="width: 200px">Nhóm</th>
-                          <th>Thời gian gọi</th>
-                          <th>Status</th>
-                          <th>Sale</th>
-                          <th>Censor</th>
-                          <th>Action</th>
+                            <th><input type="checkbox" id="select-all"></th>
+                            <th>CCCD</th>
+                            <th>Tên</th>
+                            <th>SĐT</th>
+                            <th style="width: 200px">Nhóm</th>
+                            <th>Thời gian gọi</th>
+                            <th>Status</th>
+                            <th>Sale</th>
+                            <th>Censor</th>
+                            <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                           @foreach ($customers as $item)
                               <tr>
+                                    <td>
+                                        <input type="checkbox" name="customer_ids[]" value="{{ $item->id }}">
+                                    </td>
                                     @php
                                         $idCard = $item->idCard;
                                         $maskedIdCard = Str::substr($idCard, 0, 1) . str_repeat('*', 5) . Str::substr($idCard, -1);
@@ -267,6 +270,52 @@
             var confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'), {});
             confirmDeleteModal.show();
         });
+    });
+</script>
+
+<script>
+    document.getElementById('select-all').addEventListener('change', function() {
+        let checkboxes = document.querySelectorAll('input[name="customer_ids[]"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.checked = this.checked;
+        }, this);
+    });
+
+    document.getElementById('delete-btn').addEventListener('click', function() {
+        let selectedCustomers = [];
+        document.querySelectorAll('input[name="customer_ids[]"]:checked').forEach(function(checkbox) {
+            selectedCustomers.push(checkbox.value);
+        });
+    });
+
+    document.getElementById('delete-btn').addEventListener('click', function() {
+        let selectedCustomers = [];
+        document.querySelectorAll('input[name="customer_ids[]"]:checked').forEach(function(checkbox) {
+            selectedCustomers.push(checkbox.value);
+        });
+
+        if (selectedCustomers.length === 0) {
+            alert('Please select at least one customer.');
+            return;
+        }
+        document.getElementById('loading-overlay').style.display = 'block';
+        let promises = selectedCustomers.map(function(customerId) {
+            return fetch(`/admin/destroy/${customerId}`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                }
+            });
+        });
+
+        Promise.all(promises)
+            .then(responses => {
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while deleting customers.');
+            });
     });
 </script>
 

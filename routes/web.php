@@ -59,6 +59,7 @@ Route::middleware([VerifyMiddleware::class])->group(function (){
         Route::get('/admin/edit/{id}', [EditCustomerInfoController::class, 'show'])->name('edit-customer-info');
         Route::post('/admin/edit/{id}', [EditCustomerInfoController::class, 'edit'])->name('post.edit-customer-info');
         Route::delete('/admin/delete/{id}', [DashboardController::class, 'destroy'])->name('delete-customer-info');
+        Route::delete('/admin/destroy/{id}', [DashboardController::class, 'delete']);
 
         Route::get('/admin/user', [UserController::class, 'show'])->name('show-user');
 

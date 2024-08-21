@@ -28,6 +28,7 @@
   * sidebar-mini
 -->
 <body class="hold-transition sidebar-mini">
+    <div id="loading-overlay" class="overlay">Loading...</div>
     <div class="wrapper">
         <!-- Navbar -->
         @include('admin.layouts.navbar')

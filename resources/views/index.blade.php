@@ -7259,7 +7259,7 @@
                                 style="color: {{ $setting->color }};">*</span></div>
                           </div>
                         <div id="PARAGRAPH74" class='ladi-element'>
-                          <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử lý dữ liệu
+                          <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để Tài chính An phát xử lý dữ liệu
                           </div>
                         </div>
                         <!-- <div id="PARAGRAPH75" class='ladi-element'>
@@ -7504,7 +7504,7 @@
                               </div>
                             </div>
                             <div id="PARAGRAPH83" class='ladi-element'>
-                              <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử lý dữ liệu
+                              <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để Tài chính An phát xử lý dữ liệu
                               </div>
                             </div>
 
@@ -8586,8 +8586,8 @@
             <div class="ladi-popup-background"></div>
             <div class="ladi-overlay"></div>
             <div id="PARAGRAPH182" class='ladi-element'>
-              <div class='ladi-paragraph'>Bằng việc tiếp tục, tôi xác nhận và đồng ý cho phép LOTTE Finance xử lý các
-                thông tin trên nhằm mục đích giới thiệu sản phẩm, dịch vụ của LOTTE Finance từ nay trở về sau tới tôi và
+              <div class='ladi-paragraph'>Bằng việc tiếp tục, tôi xác nhận và đồng ý cho phép Tài chính An phát xử lý các
+                thông tin trên nhằm mục đích giới thiệu sản phẩm, dịch vụ của Tài chính An phát từ nay trở về sau tới tôi và
                 các nội dung khác được nêu tại Điều khoản điều kiện xử lý dữ liệu cá nhân</div>
             </div>
           </div>
@@ -8608,7 +8608,7 @@
               <h1 class="header-title ">Quý khách vui lòng xác nhận số điện thoại để tiếp tục đăng ký</h1>
             </div>
             <div class="col-12 col-md-12 col-lg-12 text-center mt-2">
-              <p>Quý khách vui lòng vui lòng mở tin nhắn Zalo từ tài khoản LOTTE Finance để nhận mã OTP và nhập dưới
+              <p>Quý khách vui lòng vui lòng mở tin nhắn Zalo từ tài khoản Tài chính An phát để nhận mã OTP và nhập dưới
                 đây.</p>
             </div>
             <div class="col-12 col-md-12 col-lg-12 text-center mt-2">
@@ -8741,7 +8741,7 @@
                         <input type="text" class="formattedNumberInput" placeholder="Nhập mức thu nhập (triệu đồng" class="form-control" name="income">
                     </div>
                     <div class="mb-1 d-flex">
-                      <p class="mr-1"><span style="font-size: 12px;">Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử
+                      <p class="mr-1"><span style="font-size: 12px;">Bằng việc tiếp tục, Tôi đồng ý để Tài chính An phát xử
                           lý dữ liệu</span> </p>
                       <svg id="policy-info" style="color: lightskyblue;" xmlns="http://www.w3.org/2000/svg" width="16"
                         height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
@@ -8901,8 +8901,8 @@
                     font-style: italic;
                     line-height: 1.2;
                     color: rgb(0, 0, 0);
-                    text-align: justify;">Bằng việc tiếp tục, tôi xác nhận và đồng ý cho phép LOTTE Finance xử lý các
-                      thông tin trên nhằm mục đích giới thiệu sản phẩm, dịch vụ của LOTTE Finance từ nay trở về sau tới
+                    text-align: justify;">Bằng việc tiếp tục, tôi xác nhận và đồng ý cho phép Tài chính An phát xử lý các
+                      thông tin trên nhằm mục đích giới thiệu sản phẩm, dịch vụ của Tài chính An phát từ nay trở về sau tới
                       tôi và các nội dung khác được nêu tại Điều khoản điều kiện xử lý dữ liệu cá nhân</h1>
                   </div>
                 </div>

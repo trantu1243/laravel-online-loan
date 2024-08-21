@@ -7032,7 +7032,7 @@
                         </div>
 
                         <div id="PARAGRAPH74" class='ladi-element'>
-                          <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử lý dữ liệu
+                          <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để Tài chính An phát xử lý dữ liệu
                           </div>
                         </div>
 
@@ -7154,7 +7154,7 @@
                             </div>
 
                             <div id="PARAGRAPH83" class='ladi-element'>
-                              <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để LOTTE Finance xử lý dữ liệu
+                              <div class='ladi-paragraph'>Bằng việc tiếp tục, Tôi đồng ý để Tài chính An phát xử lý dữ liệu
                               </div>
                             </div>
 
@@ -7565,8 +7565,8 @@
             <div class="ladi-popup-background"></div>
             <div class="ladi-overlay"></div>
             <div id="PARAGRAPH182" class='ladi-element'>
-              <div class='ladi-paragraph'>Bằng việc tiếp tục, tôi xác nhận và đồng ý cho phép LOTTE Finance xử lý các
-                thông tin trên nhằm mục đích giới thiệu sản phẩm, dịch vụ của LOTTE Finance từ nay trở về sau tới tôi và
+              <div class='ladi-paragraph'>Bằng việc tiếp tục, tôi xác nhận và đồng ý cho phép Tài chính An phát xử lý các
+                thông tin trên nhằm mục đích giới thiệu sản phẩm, dịch vụ của Tài chính An phát từ nay trở về sau tới tôi và
                 các nội dung khác được nêu tại Điều khoản điều kiện xử lý dữ liệu cá nhân</div>
             </div>
           </div>

@@ -6,3 +6,19 @@
     word-wrap: break-word;
     white-space: normal;
 }
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    line-height: 100vh;
+    font-size: 1.5em;
+    display: none;
+    z-index: 1000;
+}
