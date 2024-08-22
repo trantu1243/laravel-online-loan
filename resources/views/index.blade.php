@@ -7678,7 +7678,7 @@
           <div class='ladi-button ladi-transition'>
             <div class="ladi-button-background" style="background-color: #FFF;"></div>
             <div id="BUTTON_TEXT43" class='ladi-element ladi-button-headline'>
-              <p class='ladi-headline ladi-transition'><span style="font-weight: bold; color: #BF2C5C;">ĐĂNG KÝ NGAY</span></p>
+              <p class='ladi-headline ladi-transition'><span style="font-weight: bold; color: #2c75bf;">ĐĂNG KÝ NGAY</span></p>
             </div>
           </div>
         </div>
