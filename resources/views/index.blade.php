@@ -6850,7 +6850,7 @@
       }
 
       #IMAGE143>.ladi-image>.ladi-image-background {
-        background-image: url("$setting->popup_button");
+        background-image: url("{{ $setting->popup_button }}");
       }
 
       #POPUP3 {
