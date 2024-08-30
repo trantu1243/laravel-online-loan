@@ -5592,7 +5592,7 @@
       }
 
       #SECTION12>.ladi-section-background {
-        background-image: url("/ladi/1-20240318105903-ybtkr.png");
+        background-image: url("{{ $setting->mb_background}}" );
       }
 
       #SECTION13 {
