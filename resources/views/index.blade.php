@@ -8536,7 +8536,18 @@
               </div>
             </div>
             <div id="PARAGRAPH168" class='ladi-element'>
-              <div class='ladi-paragraph ladi-transition'> {{ $footer->phone }}<br><br>{{ $footer->hotline }}<br><br>{{ $footer->address }}<br><br>{{ $footer->website }}<br></div>
+              <div class='ladi-paragraph ladi-transition'>
+                <br>
+                {{ $footer->phone }}
+                <br>
+                <br>
+                <br>
+                {{ $footer->hotline }}
+                <br>
+                <br>
+                {{ $footer->address }}
+                <br><br><br>
+                {{ $footer->website }}<br></div>
             </div>
             <div id="PARAGRAPH169" class='ladi-element'>
               <div class='ladi-paragraph ladi-transition'><span style="font-weight: bold;">Đăng ký <br> khoản vay:<br><br>Chăm sóc <br> khách hàng:<br><br><br>Địa
